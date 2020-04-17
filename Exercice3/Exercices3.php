@@ -1,3 +1,6 @@
+<?php
+include "function.php";
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -70,34 +73,17 @@
             echo '<div style="color: #f9150e; margin-top: 2%; font-size: 40px">Donner un entier</div>';
         }
         else{
-            //Fonction savoir si c un mot ou pas
-            function est_aplhbetique($caractere){
-                return (($caractere<='a' && $caractere>='z') || ($caractere<='A' && $caractere>='Z'));
-            }
-
-            //FONCTION CALCULER NBRE D'ELEMENTS
-            function Taille($chaines){
-                $longueur=0;
-                for($i=0; $i<strlen($chaines);$i++){
-                    $value = $chaines[$i];
-                    if(isset($value) && !empty($value)){
-                        $longueur = $longueur + 1;
-                    }
-                }
-                return $longueur;
-            }
-
             $msg = '';
             $nombre =  $_POST['nombre'];
             $nbre = 0;
             for ($i=1; $i<=$nombre;$i++){
                 if(isset($_POST['resultat'])){
                     if(isset($_POST["mot$i"])){
-                        if(empty($_POST["mot$i"])){
+                        if(empty($_POST["mot$i"]) || my_sterlen($_POST["mot$i"]) >= 20){
                             $msg = 'Donner un mot';
                         }
                         else {
-                            $mot = $_POST["mot$i"];
+                            $mot = trim($_POST["mot$i"]);
                             if(preg_match('#[^a-zA-Z^-]#', $mot)){
                                 $msg = 'Donner un mot';
                             }
@@ -106,28 +92,6 @@
                                     $nbre = $nbre + 1;
                                 }
                             }
-
-                            /*
-                            for ($j = 0; $j < Taille($mot); $j++){
-                                $nbr = 0;
-                                $caractere = $mot[$j];
-                                if(!($caractere<='a' && $caractere>='z') || !($caractere<='A' && $caractere>='Z')){
-                                    echo $caractere.'<br>';
-                                }
-                            }
-                           if(isset($espace)){
-                               if($espace==1){
-                                   $msg = 'Donner un mot correct';
-                               }
-                               else{
-                                   echo $nbr;
-                               }
-                           }
-
-                            if(preg_match('#[^a-zA-Z-]\s#', $mot)){
-                                $msg = 'Donner un mot';
-                            }
-                            */
                         }
                     }
                 }
