@@ -16,6 +16,7 @@ function est_connecte_joueur (){
 
 function  redirecting_login(){
     if(!(est_connecte())){
+
         header('location: login.php');
         exit();
     }

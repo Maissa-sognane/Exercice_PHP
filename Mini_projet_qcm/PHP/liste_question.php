@@ -12,8 +12,12 @@
 <div >
     <form action="" method="post" class="titre_entete">
         <h3 class="titre_question">Nbre de question/jeu</h3>
-        <input type="number" class="champ_nbre_questions" name="nombre_question" value="<?php if(isset($_SESSION['T'][0]))
-        {echo $_SESSION['T'][0] ;} ?>">
+        <?php
+        $T = file_get_contents('nbre_question.json');
+        $T = json_decode($T);
+        ?>
+        <input type="number" class="champ_nbre_questions" name="nombre_question" value="<?php if(isset($T[0]))
+        {echo $T[0] ;} ?>">
         <input class="button_ok" type="submit" value="OK">
     </form>
     <div class="affiche_reponse">
@@ -23,6 +27,13 @@
                 echo 'Nombre question vide';
             }
             else{
+                $T = [];
+                $T[0] = $_POST['nombre_question'];
+                $js = $T[0];
+
+                $js = json_encode($js);
+                file_put_contents('nbre_question.json', $js);
+
                 $_SESSION['T'] = array();
                 $_SESSION['T'][] = $_POST['nombre_question'];
             }
@@ -80,8 +91,7 @@
         if($currentPage<$pages){
             echo ' <a href="home_admin.php?page=liste_question&pages='.$suivant.'"><button class="button_suivant">Suivant &raquo;</button></a> ';
         }
-        shuffle($question_json);
-        $_SESSION['questions'] =  $question_json;
+
         ?>
     </div>
 </div>

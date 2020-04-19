@@ -8,7 +8,9 @@ session_start();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="/Mini_projet_qcm/CSS/home_admin.css">
+    <link rel="stylesheet" type="text/css" href="">
+    <link  rel="stylesheet" media="screen"  type="text/css" href="/Mini_projet_qcm/CSS/home_admin.css<?php echo "?".rand();?>">
+
     <title>Home_Admin</title>
 </head>
 <?php
@@ -28,7 +30,9 @@ include 'header_home_admin.php';
 
                 if(isset($_SESSION['photo'])){
                 $photo = $_SESSION['photo'];
-                echo '<img src="photo_avatar/'.$_SESSION['login'].".".$_SESSION['extensionUpload'].'">';
+                if(isset($_SESSION['extensionUpload'])) {
+                    echo '<img src="photo_avatar/' . $_SESSION['login'] . "." . $_SESSION['extensionUpload'] . '">';
+                }
 
 /*
                 $admin = array();

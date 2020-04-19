@@ -1,10 +1,12 @@
 <?php
 session_start();
 include 'header.php';
+
 $msg = '';
 $json = file_get_contents('user.json');
 $parsed_json = json_decode($json);
 //var_dump($parsed_json);
+
 if(isset($_POST['login'], $_POST['password'])) {
     if (!(empty($_POST['login'])) && !(empty($_POST['password']))) {
         require 'auth.php';
@@ -40,6 +42,7 @@ if(isset($_POST['login'], $_POST['password'])) {
                     $_SESSION['photo_joueur'] = $photo;
                     $_SESSION['nom_joueur'] = $nom;
                     $_SESSION['connecte_joueur'] = 1;
+                    $_SESSION['rep']['score'] = 0;
                     header('Location: home_joueur.php');
                 }
             }

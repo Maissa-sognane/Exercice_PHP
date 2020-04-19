@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f897afa-7252-4dab-95c7-9f03c9781a16" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CSS/liste_joueur.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PHP/score.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PHP/score_joueur.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PHP/top_score_joueur.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PHP/validation_jeu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/home_joueur.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/home_joueur.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/home_joueur.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/home_joueur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/liste_joueur.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/liste_joueur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/liste_question.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/liste_question.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/photo_avatar/sountou.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/photo_avatar/sountou.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/user.json" afterDir="false" />
-    </list>
+    <list default="true" id="9f897afa-7252-4dab-95c7-9f03c9781a16" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +36,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1aJTL8bBYD55MrHPDSpoJeCE8mM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -64,8 +50,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../projet_jeu" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -86,6 +73,12 @@
       <workItem from="1586464177472" duration="15998000" />
       <workItem from="1586953873280" duration="11661000" />
       <workItem from="1586979416840" duration="52818000" />
+      <workItem from="1587119702593" duration="16898000" />
+      <workItem from="1587152134771" duration="8514000" />
+      <workItem from="1587200674627" duration="4470000" />
+      <workItem from="1587223826904" duration="127000" />
+      <workItem from="1587224001303" duration="4283000" />
+      <workItem from="1587290183805" duration="1214000" />
     </task>
     <servers />
   </component>
@@ -93,20 +86,32 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="543" y="248" key="NewPhpFileDialog" timestamp="1587087058562">
+    <state x="434" y="187" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587224599501">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="434" y="187" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1587224599501" />
+    <state x="463" y="139" key="FileChooserDialogImpl" timestamp="1587291004092">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="463" y="139" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1587291004092" />
+    <state x="543" y="248" key="NewPhpFileDialog" timestamp="1587225507794">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="543" y="235" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1586479251847" />
-    <state x="543" y="248" key="NewPhpFileDialog/0.0.1366.768@0.0.1366.768" timestamp="1587087058562" />
-    <state x="379" y="198" key="com.intellij.ide.util.TipDialog" timestamp="1586979420530">
+    <state x="543" y="248" key="NewPhpFileDialog/0.0.1366.768@0.0.1366.768" timestamp="1587225507794" />
+    <state x="184" y="26" key="SettingsEditor" timestamp="1587224122938">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="184" y="26" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1587224122938" />
+    <state x="379" y="198" key="com.intellij.ide.util.TipDialog" timestamp="1587290626002">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586464324324" />
-    <state x="379" y="198" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1586979420530" />
-    <state x="314" y="81" width="737" height="606" key="find.popup" timestamp="1587080877669">
+    <state x="379" y="198" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1587290626002" />
+    <state x="314" y="81" width="737" height="606" key="find.popup" timestamp="1587129853834">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="314" y="81" width="737" height="606" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1587080877669" />
+    <state x="314" y="81" width="737" height="606" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1587129853834" />
     <state x="339" y="171" key="run.anything.popup" timestamp="1587078399274">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
