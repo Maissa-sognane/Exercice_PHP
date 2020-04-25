@@ -53,12 +53,12 @@ button{
     border-radius: 7px;
 }
 .score{
-    border: 1px solid black;
+    border: 5px solid white;
     width: 30%;
     height: 500px;
     margin-top: 4%;
-    border-radius: 10px;
     margin-left: 2%;
+    box-shadow: 1px 1px 12px #555;
 }
 .score a{
     text-decoration: none;
@@ -249,9 +249,6 @@ button{
      color: white;
      font-size: 25px;
  }
-
-
-
  .titre_quizz{
      font-size: 22px;
  }
@@ -286,6 +283,12 @@ button{
      }
      .boutton_precendent, .button_suivant{
          width: 20%;
+     }
+     .classement{
+         font-size: 18px;
+     }
+     .classement_score {
+         font-size: 18px;
      }
  }
 @media screen and (min-width: 320px) and  (max-width: 667px){
@@ -352,6 +355,12 @@ button{
     .score{
         height: auto;
     }
+    .classement{
+        font-size: 13px;
+    }
+    .classement_score{
+        font-size: 13px;
+    }
 }
 
 input[type="file"] {
@@ -376,4 +385,55 @@ input[type="file"] {
     background-color: #026c7b;
     cursor:pointer;
 }
+
+.classement{
+    font-size: 30px;
+
+}
+.class_score{
+    margin-top: 10%;
+    margin-left: 4%;
+}
+.points{
+    margin-right: 9%;
+    float: right;
+}
+.classement_score{
+    font-size: 30px;
+    margin-top: 6%;
+    margin-left: 2%;
+
+}
+.points_score{
+    margin-right: 9%;
+    float: right;
+    border-bottom: 4px solid #3ADDD6;
+}
+.score input{
+    width: 50%;
+    height: 60px;
+    font-size: 20px;
+    border: 0px solid white;
+    color: #2acaff;
+    background-color: rgba(122, 126, 122, 0.40);
+}
+.input_scores{
+    margin-top: -4.5px;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+.meilleur{
+    float: right;
+}
+.input_scores input:hover{
+  
+}
+.input_scores input:focus{
+    color: #7a7e7a;
+    background-color: white;
+    outline:  none;
+}
+
+
+
 

@@ -25,10 +25,16 @@ echo '<div class="entete">';
 echo '<div class="image">';
 $json = file_get_contents('user.json');
 $parsed_json = json_decode($json);
-if(isset($_SESSION['photo_joueur'])){
-$photo = $_SESSION['photo_joueur'];
-echo '<img src="photo_avatar/'.$_SESSION['photo_joueur'].'">';
-
+if(isset($_SESSION['photo_joueur'])) {
+    $photo = $_SESSION['photo_joueur'];
+}
+for($i=0;$i<count($parsed_json);$i++){
+    if(isset($parsed_json[$i]->{'profit'}) && $parsed_json[$i]->{'profit'} == 'joueur'){
+        if(isset($parsed_json[$i]->{'login'}) && ($_SESSION['login_joueur'] == $parsed_json[$i]->{'login'} )){
+                echo '<img src="photo_avatar/'.$parsed_json[$i]->{'photo'}.'">';
+        }
+    }
+}
 $users = array();
 if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])){
     $tailleMax = 2097152;
@@ -92,7 +98,6 @@ if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])){
         echo $_SESSION['nom_joueur'];
         echo '</span>';
     }
-    }
     echo '</div>';
     echo '<p class="titre_quizz">BIENVENUE SUR LA PLATEFORME DE JEU QUIZZ<br>
 JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
@@ -119,10 +124,21 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                         if (is_object($question_json[$i]->{'reponse'})) {
                             if(sizeof($question_json[$i]->{'reponse'}->{'bonne_reponse'}) == 1){
                                 if(isset($_POST['boutton_suivant']) || isset($_POST['button_terminer'])){
-                                    if(isset($_POST["reponse_bonne0"])){
+                                    if(isset($_POST["reponse0"])){
                                         if(isset($question_json[$i]->{'reponse'}->{'bonne_reponse'}[0])){
-                                            if ($question_json[$i]->{'reponse'}->{'bonne_reponse'}[0] == $_POST["reponse_bonne0"]){
+                                            if ($question_json[$i]->{'reponse'}->{'bonne_reponse'}[0] == $_POST["reponse0"]){
                                                 $reponse = 1;
+                                            }
+                                        }
+                                    }
+                                    for ($k=0;$k<count($question_json[$i]->{'reponse'}->{'fausse_reponse'});$k++){
+                                        if(isset($_POST['boutton_suivant']) || isset($_POST['button_terminer'])){
+                                            if(isset($_POST["reponse0"])){
+                                                if(isset($question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k])){
+                                                    if ($question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k] == $_POST["reponse0"]){
+                                                        $reponse = 2;
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -141,18 +157,19 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                                         }
                                     }
                                 }
-                            }
-                            for ($k=0;$k<count($question_json[$i]->{'reponse'}->{'fausse_reponse'});$k++){
-                                if(isset($_POST['boutton_suivant']) || isset($_POST['button_terminer'])){
-                                    if(isset($_POST["reponse$k"])){
-                                        if(isset($question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k])){
-                                            if ($question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k] == $_POST["reponse$k"]){
-                                                $reponse = 2;
+                                for ($k=0;$k<count($question_json[$i]->{'reponse'}->{'fausse_reponse'});$k++){
+                                    if(isset($_POST['boutton_suivant']) || isset($_POST['button_terminer'])){
+                                        if(isset($_POST["reponse$k"])){
+                                            if(isset($question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k])){
+                                                if ($question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k] == $_POST["reponse$k"]){
+                                                    $reponse = 2;
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
+
                             if($reponse == 1){
                                 $_SESSION['rep']['score'] = $_SESSION['rep']['score'] + $_SESSION['score'];
                             }
@@ -276,8 +293,126 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                 ?>
             </div>
             <div class="score">
-                <a href="home_joueur.php?page=top_score">Top scores</a>
-                <a href="home_joueur.php?page=meilleur_score" style="float: right">Mon meilleur score</a>
+               <div class="input_scores">
+                   <input class="top" type="button" id="togg1" value="Top scores">
+                   <input class="meilleur" type="button" id="togg2" value="Mon meilleur score">
+                </div>
+                <div id="d1" style="display: block">
+                    <div class="class_score">
+                        <?php
+                        $score = file_get_contents('user.json');
+                        $score_joueur = json_decode($score);
+                        echo '<br>';
+                        $T = [];
+                        $t_score = [];
+                        for($i=0;$i<count($score_joueur);$i++){
+                            $tmp = 0;
+                            if(isset($score_joueur[$i]->{'profit'}) && $score_joueur[$i]->{'profit'} == 'joueur'){
+                                if (isset($score_joueur[$i]->{'score'}) && !empty($score_joueur[$i]->{'score'})){
+                                    $max = max($score_joueur[$i]->{'score'});
+                                    if($tmp<$max){
+                                        $tmp = $max;
+                                        $t_score[] = $tmp;
+
+                                        $T[] = array(
+                                            'prenom' => $score_joueur[$i]->{'prenom'},
+                                            'nom'=>$score_joueur[$i]->{'nom'},
+                                            'meileur_score'=>$tmp
+                                        );
+                                    }
+                                }
+                            }
+                        }
+
+                        rsort($t_score);
+
+                        $Tab_classement = [];
+                        for ($i=0;$i<count($t_score);$i++) {
+                            for ($j = 0; $j < count($T); $j++){
+                                if($t_score[$i] == $T[$j]['meileur_score']) {
+                                    $Tab_classement[] = array(
+                                        'prenom' => $T[$j]['prenom'],
+                                        'nom'=> $T[$j]['nom'],
+                                        'meileur_score'=> $T[$j]['meileur_score']
+                                    );
+                                }
+                            }
+                        }
+                        //var_dump(count($Tab_classement));
+                        $Tab_classement_par_score = array_unique($Tab_classement, SORT_REGULAR);
+                        //var_dump(count($T));
+                        //var_dump(count($Tab_classement_par_score));
+                        $color0 = "#51BFD0";
+                        $color1 = "#3ADDD6";
+                        $color2 = "#e56CA7";
+                        $color3 = "#e56946";
+                        $color4 = "#F8FDFD";
+
+
+                        $color = "";
+                        $nbr = 0;
+
+                        for ($j=0;$j<count($Tab_classement);$j++){
+                            echo '<div class="classement">';
+                            if($nbr==0){
+                                $color = $color0;
+                            }
+                            if($nbr==1){
+                                $color = $color1;
+                            }
+                            if($nbr==2){
+                                $color = $color2;
+                            }
+                            if($nbr==3){
+                                $color = $color3;
+                            }
+                            if($nbr==4){
+                                $color = $color4;
+                            }
+                            if(isset($Tab_classement_par_score[$j])){
+                                echo $Tab_classement_par_score[$j]['prenom'];
+                                echo '   ';
+                                echo $Tab_classement_par_score[$j]['nom'];
+                                echo '   ';
+                                echo "<span class='points' style='border-bottom: 4px solid $color'>";
+                                echo $Tab_classement_par_score[$j]['meileur_score'];
+                                echo ' pts</span>';
+                                echo '</div>';
+                                echo '<br>';
+                                $nbr++;
+                            }
+                            if($nbr == 5){
+                                break;
+                            }
+
+
+
+                        }
+
+
+                        ?>
+                    </div>
+                </div>
+                <div id="d2" style="display: none">
+                    <?php
+                    $user = file_get_contents('user.json');
+                    $user = json_decode($user);
+                    echo '<br/>';
+                    for ($i=0;$i<count($user);$i++){
+                        if(isset($user[$i]->{'profit'}) && $user[$i]->{'profit'} == 'joueur'){
+                            if($_SESSION['login_joueur'] == $user[$i]->{'login'}){
+                                if($user[$i]->{'score'} != null){
+                                    $max = max($user[$i]->{'score'});
+                                    echo "<div class=\"classement_score\"><span class=''>Meilleur score  : <em class='points_score'>$max pts</em></span></div>";
+                                }
+                            }
+                        }
+                    }
+                    ?>
+                </div>
+
+                <!--<a href="home_joueur.php?page=top_score">Top scores</a>
+                <a href="home_joueur.php?page=meilleur_score" style="float: right">Mon meilleur score</a>-->
                 <?php
                 if(!empty($_GET['page'])) {
                     $page = $_GET['page'];
@@ -296,17 +431,7 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
         </div>
     </div>
 </body>
-<script>
+<script src="../js/score.js">
 
-    function getFile(){
-        document.getElementById("upfile").click();
-    }
-    function sub(obj){
-        var file = obj.value;
-        var fileName = file.split("\'   ");
-        document.getElementById("yourBtn").innerHTML = fileName[fileName.length-1];
-        document.myForm.submit();
-        event.preventDefault();
-    }
 </script>
 </html>

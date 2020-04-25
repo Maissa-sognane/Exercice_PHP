@@ -68,7 +68,11 @@
                     if(sizeof($question_json[$i]->{'reponse'}->{'bonne_reponse'}) == 1){
                         echo'<label class="container">'.$question_json[$i]->{'reponse'}->{'bonne_reponse'}[0].
                             '<input id= "reponse_bonne0"  value="'.$question_json[$i]->{'reponse'}->{'bonne_reponse'}[0].
-                            '" name="reponse_bonne0" type="checkbox"><span class="checkmark"></span></label><br>';
+                            '" name="reponse0" type="radio"><span class="checkmark"></span></label><br>';
+                        for ($k=0;$k<count($question_json[$i]->{'reponse'}->{'fausse_reponse'});$k++){
+                            echo'<label class="container">'.$question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k].
+                                '<input  value="'.$question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k].'" name="reponse0" type="radio"><span class="checkmark"></span></label><br>';
+                        }
                     }
                     if(sizeof($question_json[$i]->{'reponse'}->{'bonne_reponse'}) > 1){
                         for ($j=0; $j<sizeof($question_json[$i]->{'reponse'}->{'bonne_reponse'});$j++){
@@ -76,12 +80,13 @@
                                 '<input id= "reponse_bonne'.$j.'"  value="'.$question_json[$i]->{'reponse'}->{'bonne_reponse'}[$j].
                                 '" name="reponse_bonne'.$j.'" type="checkbox"><span class="checkmark"></span></label><br>';
                         }
+                        for ($k=0;$k<count($question_json[$i]->{'reponse'}->{'fausse_reponse'});$k++){
+                            echo'<label class="container">'.$question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k].
+                                '<input value="'.$question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k].'" name="reponse'.$k.
+                                '" type="checkbox"><span class="checkmark"></span></label><br>';
+                        }
                     }
-                    for ($k=0;$k<count($question_json[$i]->{'reponse'}->{'fausse_reponse'});$k++){
-                        echo'<label class="container">'.$question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k].
-                            '<input value="'.$question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k].'" name="reponse'.$k.
-                            '" type="checkbox"><span class="checkmark"></span></label><br>';
-                    }
+
                 }
                 else{
                     echo '<span class="affich_reponse"><input placeholder="REPONSE" id="reponse_texte0" name="reponse_texte0" style="width: 49%; height: 26px;" value="';
@@ -97,7 +102,7 @@
 
 
         // var_dump($reponse);
-       // var_dump($_SESSION['rep']);
+       //var_dump($_SESSION['rep']);
         //  var_dump($parsed_json);
 
         $score = array(

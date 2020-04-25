@@ -29,9 +29,7 @@ include 'header_home_admin.php';
                 for($i=0;$i<count($parsed_json);$i++){
                     if(isset($parsed_json[$i]->{'profit'}) && $parsed_json[$i]->{'profit'} == 'admin'){
                         if(isset($parsed_json[$i]->{'login'}) && $_SESSION['login'] == $parsed_json[$i]->{'login'}){
-                            if(isset($_SESSION['extensionUpload'])) {
-                                echo '<img src="photo_avatar/' .$parsed_json[$i]->{'login'}. "." . $_SESSION['extensionUpload'] . '">';
-                            }
+                                echo '<img src="photo_avatar/'.$parsed_json[$i]->{'photo'}.'">';
                         }
                     }
                 }
@@ -105,10 +103,10 @@ include 'header_home_admin.php';
         </div>
         <div class="parametres">
             <ul>
-                <li><a href="home_admin.php?page=liste_question">Liste Questions<img class="img_icone_list" src="/Mini_projet_qcm/Images/Icônes/ic-liste.png"></a></li>
-                <li><a href="home_admin.php?page=créer_admin">Créer Admin<img class="img_icone_ajout-active" src="/Mini_projet_qcm/Images/Icônes/ic-ajout-active.png" alt=""></a></li>
-                <li><a href="home_admin.php?page=liste_joueur">Liste joueurs<img class="img_ic_list" src="/Mini_projet_qcm/Images/Icônes/ic-liste.png" alt=""></a></li>
-                <li><a href="home_admin.php?page=creation_joueur">Créer Questions<img class="img_ic_ajout" src="/Mini_projet_qcm/Images/Icônes/ic-ajout.png" alt=""></a></li>
+                <li><a href="home_admin.php?page=liste_question">Liste Questions<img class="img_icone_list" src="../Images/Icônes/ic-liste.png"></a></li>
+                <li><a href="home_admin.php?page=créer_admin">Créer Admin<img class="img_icone_ajout-active" src="../Images/Icônes/ic-ajout-active.png" alt=""></a></li>
+                <li><a href="home_admin.php?page=liste_joueur">Liste joueurs<img class="img_ic_list" src="../Images/Icônes/ic-liste.png" alt=""></a></li>
+                <li><a href="home_admin.php?page=creation_joueur">Créer Questions<img class="img_ic_ajout" src="../Images/Icônes/ic-ajout.png" alt=""></a></li>
             </ul>
         </div>
     </div>

@@ -61,12 +61,20 @@
                 if ($question_json[$i]){
                     $affich_question = $x.'.'.$question_json[$i]->{'questions'} ;
                     echo "<span class='afficher_question'>$affich_question</span><br/>";
-                    if (is_object($question_json[$i]->{'reponse'})) {
-                        for ($j=0; $j<sizeof($question_json[$i]->{'reponse'}->{'bonne_reponse'});$j++){
-                            echo '<input type="checkbox"/><span class="affich_reponse">'.$question_json[$i]->{'reponse'}->{'bonne_reponse'}[$j].'</span><br/>';
+                    if (is_object($question_json[$i]->{'reponse'})){
+                        if(sizeof($question_json[$i]->{'reponse'}->{'bonne_reponse'}) == 1){
+                            echo '<input type="radio" checked="checked"/><span class="affich_reponse">'.$question_json[$i]->{'reponse'}->{'bonne_reponse'}[0].'</span><br/>';
+                            for ($k=0;$k<count($question_json[$i]->{'reponse'}->{'fausse_reponse'});$k++){
+                                echo '<input type="radio"/><span class="affich_reponse">'.$question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k].'</span><br/>';
+                            }
                         }
-                        for ($k=0;$k<count($question_json[$i]->{'reponse'}->{'fausse_reponse'});$k++){
-                            echo '<input type="checkbox"/><span class="affich_reponse">'.$question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k].'</span><br/>';
+                        else{
+                            for ($j=0; $j<sizeof($question_json[$i]->{'reponse'}->{'bonne_reponse'});$j++){
+                                echo '<input type="checkbox" checked="checked"/><span class="affich_reponse">'.$question_json[$i]->{'reponse'}->{'bonne_reponse'}[$j].'</span><br/>';
+                            }
+                            for ($k=0;$k<count($question_json[$i]->{'reponse'}->{'fausse_reponse'});$k++){
+                                echo '<input type="checkbox"/><span class="affich_reponse">'.$question_json[$i]->{'reponse'}->{'fausse_reponse'}[$k].'</span><br/>';
+                            }
                         }
                     }
                     else{

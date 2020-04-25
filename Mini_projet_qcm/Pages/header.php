@@ -11,7 +11,7 @@
 <header>
     <nav class="nav">
 
-        <div class="logo"><img src="/Mini_projet_qcm/Images/logo-QuizzSA.png"></div>
+        <div class="logo"><img src="../Images/logo-QuizzSA.png"></div>
         <p class="titre">Le plaisir de jouer</p>
     </nav>
 </header>

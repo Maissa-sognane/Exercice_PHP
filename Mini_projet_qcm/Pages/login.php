@@ -81,7 +81,7 @@ if(isset($_POST['login'], $_POST['password'])) {
             echo $_POST['login'];
         }
             ?>">
-        <img class="img_log" src="/Mini_projet_qcm/Images/Icônes/ic-login.png" alt="">
+        <img class="img_log" src="../Images/Icônes/ic-login.png" alt="">
         <br>
         <span class="error"  id="error-2"></span>
         <input class="input" type="password" error="error-2"  id="password" name="password" placeholder="Password" value="<?php
@@ -89,7 +89,7 @@ if(isset($_POST['login'], $_POST['password'])) {
             echo $_POST['password'];
         }
         ?>">
-        <img class="img_log"   src="/Mini_projet_qcm/Images/Icônes/icone-password.png" alt="" style="height: 20px"><br>
+        <img class="img_log"   src="../Images/Icônes/icone-password.png" alt="" style="height: 20px"><br>
         <input class="button"  type="submit" value="Connexion">
         <a href="inscription.php">S'inscrire pour jouer?</a>
 
