@@ -1,0 +1,1966 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url('../Images/img-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.nav{
+    background-color: #026c7b;
+    height: 63px;
+}
+.titre{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    margin-top: -5%;
+}
+.logo img {
+    height: 59px;
+}
+.titre{
+    margin-top: -4%;
+}
+
+/*Media Query*/
+@media screen and (min-width: 667px) and  (max-width: 1024px){
+    body{
+        background-size: 190%;
+    }
+    .logo img {
+        height: 57px;
+    }
+    .titre{
+        margin-top: -5%;
+    }
+}
+
+@media screen and (min-width: 320px) and  (max-width: 667px){
+
+    body{
+        background-size: 214%;
+    }
+
+    .titre{
+        margin-top: -10%;
+        font-size: 20px;
+    }
+    .logo img {
+        height: 58px;
+    }
+}
+
+/* ################# PAGE LOGIN #######################*/
+.formulaire{
+    margin: 0 auto;
+    width: 40%;
+    background-color: #737573;
+    border-radius: 3px;
+    margin-top: 10%;
+    height: 350px;
+}
+.titre_formulaire{
+    background-color: #0cb0ff;
+    height: 50px;
+}
+.log_form{
+    font-size: 20px;
+    padding-top: 3%;
+    margin-left: 4%;
+    color: white;
+}
+.input_login{
+    width: 90%;
+    margin-left: 4%;
+    height: 50px;
+    margin-top: 5%;
+    padding-left: 2%;
+    border-radius: 5px 5px 5px 5px;
+    color: black;
+}
+.img_log{
+    margin-left: -8%;
+}
+.button{
+    height: 50px;
+    width: 30%;
+    margin-left: 4%;
+    margin-top: 5%;
+    border-radius: 7px 7px 7px 7px;
+    background-color: #0cb0ff;
+    border: 2px solid #0cb0ff;
+    color: white;
+}
+a{
+    margin-left: 5%;
+    text-decoration: none;
+    color: rgba(200,200,200,0.64);
+}
+.error{
+    color: red;
+    margin-top: 4px;
+    position: absolute;
+    margin-left: 21px;
+}
+
+/*Response */
+
+@media screen and (min-width: 320px) and  (max-width: 667px){
+    .formulaire{
+        width: 75%;
+    }
+}
+
+/* ############## Page Admin ###################*/
+
+.centre{
+    background-color: rgba(229,228,228,0.94);
+    width: 90%;
+    margin-left: 5%;
+    margin-top: -0.5px;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+}
+.para_droite{
+    background-color: white;
+    width: 30%;
+    margin-left: 2%;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 46px;
+}
+.image_profil{
+    background-color: #0cb0ff;
+    height: 250px;
+    border-radius: 10px 10px 0 0;
+    margin-top: -6%;
+    padding-top: 6%;
+    display: flex;
+    justify-content: space-around;
+}
+.avatar_admin{
+    margin-left: 77%;
+    margin-top: -4%;
+}
+.image_admin{
+    border-radius:50%;
+    width:120px;
+    height:120px;
+    border:2px solid slategray;
+    margin-left: 8%;
+}
+.image_admin img{
+    border-radius:50%;
+    width:120px;
+    height:120px;
+
+}
+.photoavatar{
+    margin-left: 60%;
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    border: 4px solid slategray;
+    margin-top: -44%;
+}
+.photoavatar img{
+    border-radius:50%;
+    width:188px;
+    height:188px;
+}
+.prenom{
+    padding-right: 7%;
+}
+.pseudo{
+    margin-top: 8%;
+    margin-right: 29%;
+    font-size: 25px;
+}
+.nom{
+    margin-left: 50%;
+}
+.choixfichier{
+    margin-top: 15%;
+    height: 50px;
+}
+
+.parametres ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.parametres a{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    margin-left: 5%;
+    width: 100%;
+
+}
+.parametres li{
+    margin-top: 3%;
+    height: 50px;
+}
+.parametres li:hover{
+    background-color: rgba(229,68,40,0.34);
+    border-left: 4px solid green;
+}
+.parametres li  img{
+    margin-top: 4%;
+}
+.img_icone_list{
+    margin-left: 40%;
+}
+.img_ic_ajout{
+    margin-left: 38%;
+}
+.img_icone_ajout-active{
+    margin-left: 45%;
+}
+.img_ic_list{
+    margin-left: 45%;
+}
+.para_gauche{
+    background-color: white;
+    width: 60%;
+    margin-left: 3%;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+/* Responsivité */
+
+@media screen and (min-width: 667px) and  (max-width: 1024px){
+    .img_icone_list{
+        margin-left: 30%;
+    }
+    .img_ic_ajout{
+        margin-left: 28%;
+    }
+    .img_icone_ajout-active{
+        margin-left: 37%;
+    }
+    .img_ic_list{
+        margin-left: 37%;
+    }
+    .image{
+        height: 120px;
+        width: 120px;
+    }
+    .image img{
+        height: 120px;
+        width: 120px;
+        padding: 0;
+        margin: 0;
+    }
+
+}
+
+@media screen and (min-width: 320px) and  (max-width: 667px){
+    .image_profil{
+        height: auto;
+    }
+    .image{
+        width: 100px;
+        height: 100px;
+        margin-left: 34%;
+    }
+    .image img{
+        width: 100px;
+        height: 100px;
+        padding: 0;
+        margin: 0;
+    }
+    .pseudo{
+        font-size: 15px;
+        margin-top: 65%;
+        margin-left: -20%;
+    }
+    .form_pseudo{
+        display: none;
+    }
+    .parametres li{
+        height: 40px;
+    }
+    .parametres li a{
+        font-size: 15px;
+    }
+    .parametres li img{
+        margin-top: 0%;
+        height: 20px;
+    }
+
+
+    .img_icone_list{
+        margin-left: 4%;
+    }
+    .img_ic_ajout{
+        margin-left: 2%;
+    }
+    .img_icone_ajout-active{
+        margin-left: 11%;
+    }
+    .img_ic_list{
+        margin-left: 14%;
+    }
+    .parametres{
+        font-size: 15px;
+    }
+    .image {
+        width: 100px;
+        height: 100px;
+        margin-left: 15%;
+    }
+    .pseudo {
+        font-size: 10px;
+        margin-top: 65%;
+        margin-left: -20%;
+    }
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#yourBtn{
+    top: 150px;
+    font-family: calibri;
+    width: 100px;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid #026c7b;
+    text-align: center;
+    background-color: #026c7b;
+    cursor:pointer;
+}
+.entete{
+    background-color: #0cb0ff;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 10px 10px 0 0 ;
+    height: 80px;
+}
+.logout{
+    float: right;
+    height: 40px;
+
+}
+.titre_quizz{
+    text-align: center;
+    padding-top: 2%;
+    font-size: 25px;
+    color: white;
+    margin-top: 7px;
+}
+button{
+    margin-top: -4%;
+    margin-right: 4%;
+    width: 12%;
+    color: white;
+    background-color: #2acaff;
+    border: #2acaff;
+}
+
+/* Responsivité */
+@media screen and (min-width: 320px) and  (max-width: 667px){
+    .entete{
+        height: 65px;
+    }
+    button{
+        width: 18%;
+        margin-top: -9%;
+    }
+
+    .titre_quizz {
+        font-size: 12px;
+        padding-top: 5%;
+    }
+    .logout{
+        width: 21%;
+        margin-top: -8%;
+        height: 35px;
+    }
+}
+/* ################ PAGE JOUEUR ##############  */
+
+.entete_joueur{
+    background-color: #0cb0ff;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 10px 10px 0 0 ;
+    height: 110px;
+    margin-top: 1%;
+}
+.logout_joueur{
+    float: right;
+    height: 40px;
+    margin-top: -6%;
+
+}
+.titre_quizz_joueur{
+    text-align: center;
+    padding-top: 2%;
+    font-size: 17px;
+    color: white;
+    margin-top: -3%;
+}
+button{
+margin-top: -4%;
+margin-right: 4%;
+width: 12%;
+color: white;
+background-color: #2acaff;
+border: #2acaff;
+}
+.centre_joueur{
+background-color: rgba(229,228,228,0.94);
+width: 90%;
+margin-left: 5%;
+margin-top: -0.5px;
+border-radius: 0px 0px 10px 10px;
+display: flex;
+}
+.para_gauche_joueur{
+background-color: white;
+width: 98%;
+margin-left: 1%;
+margin-top: 3%;
+border-radius: 6px;
+display: flex;
+}
+.reponse_joueur{
+border: 1px solid #0cb0ff;
+width: 65%;
+margin-left: 1%;
+margin-top: 2%;
+border-radius: 7px;
+}
+.score{
+border: 5px solid white;
+width: 30%;
+height: 500px;
+margin-top: 4%;
+margin-left: 2%;
+box-shadow: 1px 1px 12px #555;
+}
+.score a{
+text-decoration: none;
+color: #0cb0ff;
+font-size: 31px;
+
+}
+.question{
+border: 1px solid rgba(140,140,140,0.35);
+width: 90%;
+margin-left: 4%;
+background-color: rgba(140,140,140,0.35);
+margin-top: 9px;
+}
+.afficher_question
+{
+font-size: 25px;
+display: flow-root;
+}
+.scoreTag{
+border: 1px solid rgba(140,140,140,0.35);
+background-color: rgba(140,140,140,0.35);
+width: 10%;
+float: right;
+margin-top: 3%;
+text-align: center;
+height: 35px;
+margin-right: 47px;
+border-right-color: #0cb0ff;
+font-size: 25px;
+}
+.reponse_question{
+margin-top: 10%;
+font-size: 36px;
+margin-left: 5%;
+}
+.pagination{
+margin-top: 4%;
+padding-bottom: 2%;
+margin-left: 2%;
+width: 95%;
+}
+.button_suivant{
+margin-top: 3%;
+margin-right: 4%;
+width: 17%;
+color: white;
+background-color: #2acaff;
+border: #2acaff;
+height: 45px;
+float: right;
+font-size: 21px;
+}
+.boutton_precendent{
+margin-top: 3%;
+margin-right: 4%;
+width: 17%;
+color: white;
+background-color: #2acaff;
+border: #2acaff;
+height: 45px;
+font-size: 21px;
+}
+
+.container {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.image{
+    border-radius:50%;
+    width: 90px;
+    height: 90px;
+    border:1px solid slategray;
+
+}
+.image img{
+    border-radius:50%;
+    width: 90px;
+    height: 90px;
+}
+.photoavatar{
+    margin-left: 71%;
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    border: 4px solid slategray;
+    margin-top: -54%;
+}
+.photoavatar img{
+    border-radius:50%;
+    width:188px;
+    height:188px;
+}
+.prenom{
+
+}
+.pseudo{
+
+}
+.input{
+    margin-left: 10%;
+}
+.nom{
+
+}
+.choixfichier{
+    margin-top: 50%;
+}
+.avatar{
+    margin-left: 109%;
+    margin-top: -57%;
+}
+
+.mot{
+    text-align: center;
+    font-size: 30px;
+
+}
+.input{
+    width: 70%;
+    margin-left: 14%;
+    height: 70px;
+    background-color: #3ADDD6;
+    border-color: #3ADDD6;
+    color: white;
+    font-size: 25px;
+}
+.titre_quizz{
+    font-size: 22px;
+}
+.para_gauche{
+    margin-top: 8px;
+}
+.score a{
+    font-size: 25px;
+}
+@media screen and (min-width: 667px) and  (max-width: 1024px){
+    .titre_quizz {
+        font-size: 15px;
+        margin-top: -10%;
+    }
+    .score a{
+        font-size: 20px;
+    }
+    form h1{
+        font-size: 20px;
+    }
+    .afficher_question h4{
+        font-size: 20px;
+    }
+    .scoreTag{
+        font-size: 18px;
+    }
+    .reponse_question{
+        font-size: 15px;
+    }
+    .container{
+        font-size: 15px;
+    }
+    .boutton_precendent, .button_suivant{
+        width: 20%;
+    }
+    .classement{
+        font-size: 18px;
+    }
+    .classement_score {
+        font-size: 18px;
+    }
+}
+@media screen and (min-width: 320px) and  (max-width: 667px){
+    .avatar{
+        display: none;
+    }
+    .image{
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+    }
+    .image img{
+        width: 60px;
+        height: 60px;
+    }
+    .titre_quizz{
+        margin-top: -15%;
+        margin-left: 5%;
+        font-size: 9px;
+    }
+    .entete{
+        height: 80px;
+    }
+    .logout{
+        width: 17%;
+        font-size: 9px;
+        margin-right: 1%;
+        height: 25px;
+    }
+    form h1{
+        font-size: 15px;
+    }
+    .afficher_question{
+        font-size: 15px;
+    }
+    .score_question{
+        font-size: 10px;
+    }
+    .reponse_question{
+        font-size: 15px;
+    }
+    .container{
+        font-size: 15px;
+    }
+    .checkmark{
+        height: 15px;
+        width: 15px;
+    }
+    .button_suivant{
+        margin-right: 18%;
+        width: 32%;
+        height: 33px;
+        font-size: 16px;
+    }
+    .boutton_precendent{
+        margin-right: 18%;
+        width: 32%;
+        height: 33px;
+        font-size: 16px;
+    }
+    .score a{
+        font-size: 16px;
+    }
+    .score{
+        height: auto;
+    }
+    .classement{
+        font-size: 13px;
+    }
+    .classement_score{
+        font-size: 13px;
+    }
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#yourBtn{
+    top: 150px;
+    font-family: calibri;
+    width: 100px;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid #026c7b;
+    text-align: center;
+    background-color: #026c7b;
+    cursor:pointer;
+}
+
+.classement{
+    font-size: 30px;
+
+}
+.class_score{
+    margin-top: 10%;
+    margin-left: 4%;
+}
+.points{
+    margin-right: 9%;
+    float: right;
+}
+.classement_score{
+    font-size: 30px;
+    margin-top: 6%;
+    margin-left: 2%;
+
+}
+.points_score{
+    margin-right: 9%;
+    float: right;
+    border-bottom: 4px solid #3ADDD6;
+}
+.score input{
+    width: 50%;
+    height: 60px;
+    font-size: 20px;
+    border: 0px solid white;
+    color: #2acaff;
+    background-color: rgba(122, 126, 122, 0.40);
+}
+.input_scores{
+    margin-top: -4.5px;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+.meilleur{
+    float: right;
+}
+.input_scores input:hover{
+
+}
+.input_scores input:focus{
+    color: #7a7e7a;
+    background-color: white;
+    outline:  none;
+}
+
+/* ################# CREATION LISTER QUESTIONS ####################*/
+.titre_entete_lister_question{
+    display: flex;
+    justify-content: space-between;
+}
+.champ_nbre_questions{
+    width: 10%;
+    height: 30px;
+    margin-top: 2%;
+}
+.titre_question{
+    margin-left: 39%;
+}
+.button_ok{
+    margin-right: 21%;
+    height: 34px;
+    margin-top: 2%;
+    background-color: #183e9c;
+    border-color: #183e9c;
+    color: white;
+}
+.affiche_reponse_lister_question{
+    border: 1px solid;
+    border-color: rgba(18,19,18,0.35);
+    width: 90%;
+    margin-left: 4%;
+    border-radius: 8px;
+}
+.afficher_question_lister_question{
+    font-size: 24px;
+    color: #7a7e7a;
+}
+.affich_reponse_liste_question{
+    font-size: 18px;
+    font-family: "Arial Black";
+}
+.button_suivant_lister_question{
+    margin-left: 51%;
+    height: 40px;
+    margin-top: 2%;
+    margin-right: 0;
+}
+.boutton_precendent_lister_question{
+    height: 40px;
+    margin-left: 2px;
+    margin-right: 0;
+}
+
+@media screen and (min-width: 667px) and  (max-width: 1024px){
+    .boutton_precendent{
+        margin-top: 3%;
+        height: 40px;
+        margin-left: 16px;
+        width: 83px;
+    }
+    .button_suivant{
+        margin-left: 52%;
+        height: 40px;
+        width: 83px;
+    }
+    .afficher_question_lister_question{
+        font-size: 15px;
+    }
+    .affich_reponse_liste_question{
+        font-size: 10px;
+    }
+    .titre_question{
+        font-size: 12px;
+    }
+    .champ_nbre_questions{
+        height: 24px;
+        margin-top: 1%;
+    }
+    .button_ok{
+        height: 30px;
+        margin-top: 1%;
+    }
+}
+@media screen and (min-width: 320px) and  (max-width: 667px){
+
+    .boutton_precendent_lister_question{
+        margin-top: 3%;
+        height: 40px;
+        margin-left: 16px;
+        width: 83px;
+        font-size: 10px;
+    }
+    .button_suivant_lister_question{
+        margin-left: 20%;
+        height: 40px;
+        width: 83px;
+        font-size: 10px;
+    }
+    .afficher_question_lister_question{
+        font-size: 15px;
+    }
+    .affich_reponse_liste_question{
+        font-size: 10px;
+    }
+    .titre_question{
+        font-size: 12px;
+        margin-left: 20%;
+    }
+    .champ_nbre_questions{
+        height: 24px;
+        margin-top: 1%;
+    }
+    .button_ok{
+        height: 30px;
+        margin-top: 1%;
+    }
+}
+
+/* Formulaire Création Admin*/
+
+.form_image_creer_admin{
+    display: flex;
+}
+.inscrire{
+    margin-left: 7%;
+}
+.formulaire_creer_admin{
+    margin-left: 7%;
+}
+.inpt_creer_admin{
+    height: 30px;
+    width: 170%;
+    border-radius: 7px 7px 7px 7px;
+}
+.avatar_creer_admin{
+    margin-top: 5%;
+}
+
+.photoavatar_creer_admin{
+    margin-left: 32%;
+    border-radius: 50%;
+    width: 165px;
+    height: 165px;
+    border: 4px solid slategray;
+    margin-top: 14%;
+}
+.photoavatar_creer_admin img{
+    border-radius:50%;
+    width: 164px;
+    height: 164px;
+}
+
+.choix_fichier_creer_admin{
+    float: right;
+    margin-right: -70%;
+    border-color: #2acaff;
+    height: 30px;
+}
+.creer_compte_creer_admin{
+    margin-top: 10%;
+    width: 80%;
+    height: 30px;
+    color: white;
+    margin-left: 35%;
+}
+hr{
+    width: 190%;
+    margin-left: 0
+}
+@media screen and (min-width: 667px) and  (max-width: 1024px) {
+    .photoavatar_creer_admin {
+        width: 100px;
+        height: 100px;
+        margin-top: 38%;
+    }
+    .photoavatar_creer_admin img{
+        width: 100px;
+        height: 100px;
+    }
+    .avatar_creer_admin{
+        margin-top: 20%;
+        margin-left: 8%;
+    }
+}
+
+@media screen and (min-width: 320px) and  (max-width: 667px){
+    h3{
+        font-size: 10px;
+    }
+    span{
+        font-size: 10px;
+    }
+    hr{
+        width: 100%;
+    }
+    label{
+        font-size: 10px;
+    }
+    .inpt_creer_admin{
+        width: 90%;
+    }
+    /*
+    .photoavatar{
+        width: 100px;
+        height: 100px;
+        margin-left: 32%;
+        position: fixed;
+        margin-top: -50%;
+    }
+    */
+
+    .creer_compte_creer_admin{
+        margin-top: 24%;
+        margin-bottom: 8%;
+    }
+
+    .choix_fichier_creer_admin {
+        margin-right: 0;
+    }
+    .creer_compte_creer_admin{
+        width: 47%;
+        margin-left: 25%;
+        color: white;
+        margin-top: 10%;
+    }
+    .photoavatar_creer_admin{
+        display: none;
+    }
+    #yourBtn{
+        display: none;
+    }
+}
+input[type="file"] {
+    display: initial;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#yourBt{
+    top: 150px;
+    font-family: calibri;
+    width: 100px;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid #026c7b;
+    text-align: center;
+    background-color: #026c7b;
+    cursor:pointer;
+}
+
+/* ############# LISTER JOUEUR ##################*/
+
+.titre_liste_joueur{
+    text-align: center;
+    margin-top: 7%;
+    color: #818181;
+}
+.center{
+    border: 1px solid #3ADDD6;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: -0.5px;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 8%;
+}
+th {
+    height: 50px;
+    text-align: left;
+    font-size: 25px;
+    color: #818181;
+}
+td{
+    font-size: 20px;
+    color: #818181;
+}
+.pagination{
+    margin-left: 5%;
+    margin-top: 2%;
+}
+.pagination input{
+    width: 15%;
+    height: 40px;
+    background-color: #3ADDD6;
+    border-color: #3ADDD6;
+    color: white;
+    font-size: 18px;
+}
+.button_suivant{
+    float: right;
+    margin-right: 5%;
+}
+@media screen and (min-width: 320px) and  (max-width: 667px) {
+    h2{
+        font-size: 15px;
+    }
+    th{
+        font-size: 15px;
+    }
+    td{
+        font-size: 15px;
+    }
+}
+
+/* ################ CREATION QUESTION ####################*/
+
+.formulaire_creer_question{
+    border: 2px solid #0cb0ff;
+    width: 95%;
+    margin-left: 2%;
+    border-radius: 20px;
+}
+textarea{
+    width: 75%;
+    height: 90px;
+    margin-left: 6%;
+    margin-top: 1%;
+    background-color: rgba(83,90,95,0.16);
+    border: 1px solid rgba(83,90,95,0.16);
+}
+.title_tag{
+    font-size: 20px;
+    font-family: Arial;
+
+}
+.span_erreur{
+    margin-top: 6%;
+    float: left;
+    color: black;
+    font-size: 22px;
+    margin-left: 2%;
+}
+.inpt_score{
+    width: 10%;
+    margin-left: 2%;
+    height: 30px;
+    margin-top: 5%;
+    color: #0cb0ff;
+    background-color: rgba(83,90,95,0.16);
+    border: 1px solid rgba(83,90,95,0.16);
+}
+.title_score{
+    font-size: 20px;
+    font-family: Arial;
+    margin-top: 10%;
+}
+select{
+    width: 68%;
+    margin-left: 8%;
+    height: 50px;
+    margin-top: 5%;
+    background-color: rgba(83,90,95,0.16);
+    border: 1px solid rgba(83,90,95,0.16);
+}
+
+.title_number_response span{
+
+    font-family: Arial;
+    margin-left: -7%;
+    margin-top: 5%;
+    font-size: 14px;
+}
+.error{
+    color: red;
+    margin-top: -1px;
+    position: absolute;
+    margin-left: 12%;
+    font-size: 15px;
+
+}
+.erro_nbre_reponser{
+    color: red;
+    margin-top: 7%;
+    position: absolute;
+    margin-left: -34%;
+    font-size: 15px;
+    font-weight: initial;
+
+}
+.error_ipt{
+    color: red;
+    margin-top: 1%;
+    margin-left: 23%;
+    font-size: 15px;
+
+}
+#number_reponse{
+    margin-top: 6%;
+    height: 46px;
+    margin-left: 8.5%;
+    background-color: rgba(83,90,95,0.16);
+    border: 1px solid rgba(83,90,95,0.16);
+    width: 57%;
+}
+
+.inpt_js{
+    width: 68%;
+    margin-left: 23%;
+    height: 50px;
+    margin-top: 1%;
+    background-color: rgba(83,90,95,0.16);
+    border: 1px solid rgba(83,90,95,0.16);
+}
+.input_simple_js{
+    margin-top: -15%;
+    margin-left: 19%;
+    width: 71%;
+    height: 45px;
+    background-color: rgba(83,90,95,0.16);
+    border: 1px solid rgba(83,90,95,0.16);
+}
+.ajouter_nbre_reponse{
+    height: 49px;
+    background-color: #0cb0ff;
+    border-color: #0cb0ff;
+    color: white;
+
+}
+.message_erreur{
+    color: red;
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    font-size: 20px;
+}
+.enregistrer{
+    margin-left: 86%;
+    height: 40px
+}
+
+.ajouter_nbre_reponses img{
+    float: right;
+    margin-top: -6.5%;
+    margin-right: 1.5%;
+    height: 38px;
+}
+.titre_para_ques{
+    color: #3ADDD6;
+    text-align: center;
+}
+
+/* Responsivité */
+
+@media screen and (min-width: 667px) and  (max-width: 1024px){
+    select{
+        width: 52%;
+    }
+    .ajouter_nbre_reponses img{
+        margin-top: -9.5%;
+        margin-right: 6.5%;
+    }
+    .enregistrer{
+        margin-left: 82%;
+    }
+    button{
+        width: 16%;
+    }
+    h1{
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 320px) and  (max-width: 667px){
+    .para_gauche{
+
+    }
+    h1{
+        font-size: 10px;
+        text-align: center;
+    }
+    span{
+        font-size: 12px;
+    }
+    textarea{
+        height: 50px;
+    }
+    .inpt_score{
+        height: 20px;
+    }
+    h4{
+        display: none;
+    }
+    .input_simple_js{
+        margin-right: 20%;
+    }
+    .title_number_response span{
+        font-size: 10px;
+    }
+    #number_reponse{
+        margin-top: 8%;
+        height: 37px;
+        margin-left: 2.5%;
+        width: 33%;
+    }
+    .ajouter_nbre_reponse{
+        height: 35px;
+    }
+    .inpt_js{
+        width: 60%;
+    }
+    #ajout_type_reponse{
+        margin-top: 17%;
+        margin-left: -18%;
+    }
+
+    .enregistrer strong{
+        font-size: 10px;
+    }
+    .ajouter_nbre_reponses img{
+        margin-top: -18.5%;
+        margin-right: 5.5%;
+    }
+    .title_number_response span{
+        display: none;
+    }
+    .enregistrer{
+        height: 30px;
+        width: 25%;
+        margin-left: 166px;
+    }
+}
+
+/*################## PAGE JOUEUR #########################*/
+
+.entete_joueur{
+    background-color: #0cb0ff;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 10px 10px 0 0 ;
+    height: 110px;
+    margin-top: 1%;
+}
+.logout_joueur{
+    float: right;
+    height: 40px;
+    margin-top: -6%;
+
+}
+.titre_quizz_joueur{
+    text-align: center;
+    padding-top: 2%;
+    font-size: 20px;
+    color: white;
+    margin-top: -8%;
+    margin-left: 8%;
+
+}
+.avatar_joueur{
+    margin-top: -74%;
+    margin-left: 104%;
+}
+.image_joueur{
+    border-radius:50%;
+    width:100px;
+    height:100px;
+    border:2px solid slategray;
+}
+.image_joueur img{
+    border-radius:50%;
+    width:100px;
+    height:100px;
+
+}
+.photoavatar{
+    margin-left: 60%;
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    border: 4px solid slategray;
+    margin-top: -44%;
+}
+.photoavatar img{
+    border-radius:50%;
+    width:188px;
+    height:188px;
+}
+.prenom{
+    padding-right: 7%;
+}
+.pseudo_joueur{
+    margin-left: 7%;
+    margin-top: -1%;
+}
+button{
+margin-top: -4%;
+margin-right: 4%;
+width: 12%;
+color: white;
+background-color: #2acaff;
+border: #2acaff;
+}
+.centre_joueur{
+background-color: rgba(229,228,228,0.94);
+width: 90%;
+margin-left: 5%;
+margin-top: -0.5px;
+border-radius: 0px 0px 10px 10px;
+display: flex;
+}
+.para_gauche_joueur{
+background-color: white;
+width: 98%;
+margin-left: 1%;
+margin-top: 3%;
+border-radius: 6px;
+display: flex;
+}
+.reponse_joueur{
+border: 1px solid #0cb0ff;
+width: 65%;
+margin-left: 1%;
+margin-top: 2%;
+border-radius: 7px;
+}
+.score{
+border: 5px solid white;
+width: 30%;
+height: 500px;
+margin-top: 4%;
+margin-left: 2%;
+box-shadow: 1px 1px 12px #555;
+}
+.score a{
+text-decoration: none;
+color: #0cb0ff;
+font-size: 31px;
+
+}
+.question{
+border: 1px solid rgba(140,140,140,0.35);
+width: 90%;
+margin-left: 4%;
+background-color: rgba(140,140,140,0.35);
+margin-top: 9px;
+}
+.afficher_question
+{
+font-size: 25px;
+display: flow-root;
+}
+.scoreTag{
+border: 1px solid rgba(140,140,140,0.35);
+background-color: rgba(140,140,140,0.35);
+width: 10%;
+float: right;
+margin-top: 3%;
+text-align: center;
+height: 35px;
+margin-right: 47px;
+border-right-color: #0cb0ff;
+font-size: 25px;
+}
+.reponse_question{
+margin-top: 10%;
+font-size: 36px;
+margin-left: 5%;
+}
+.pagination{
+margin-top: 4%;
+padding-bottom: 2%;
+margin-left: 2%;
+width: 95%;
+}
+.button_suivant{
+margin-top: 3%;
+margin-right: 4%;
+width: 17%;
+color: white;
+background-color: #2acaff;
+border: #2acaff;
+height: 45px;
+float: right;
+font-size: 21px;
+}
+.boutton_precendent{
+margin-top: 3%;
+margin-right: 4%;
+width: 17%;
+color: white;
+background-color: #2acaff;
+border: #2acaff;
+height: 45px;
+font-size: 21px;
+}
+
+.container {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.image{
+    border-radius:50%;
+    width: 90px;
+    height: 90px;
+    border:1px solid slategray;
+
+}
+.image img{
+    border-radius:50%;
+    width: 90px;
+    height: 90px;
+}
+.photoavatar{
+    margin-left: 71%;
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    border: 4px solid slategray;
+    margin-top: -54%;
+}
+.photoavatar img{
+    border-radius:50%;
+    width:188px;
+    height:188px;
+}
+.prenom{
+
+}
+.pseudo{
+
+}
+.input{
+    margin-left: 10%;
+}
+.nom{
+
+}
+.choixfichier{
+    margin-top: 50%;
+}
+.avatar{
+    margin-left: 109%;
+    margin-top: -57%;
+}
+
+.mot{
+    text-align: center;
+    font-size: 30px;
+
+}
+.input{
+    width: 70%;
+    margin-left: 14%;
+    height: 70px;
+    background-color: #3ADDD6;
+    border-color: #3ADDD6;
+    color: white;
+    font-size: 25px;
+}
+.titre_quizz{
+    font-size: 22px;
+}
+.para_gauche{
+    margin-top: 8px;
+}
+.score a{
+    font-size: 25px;
+}
+@media screen and (min-width: 667px) and  (max-width: 1024px){
+    .titre_quizz {
+        font-size: 15px;
+        margin-top: -10%;
+    }
+    .score a{
+        font-size: 20px;
+    }
+    form h1{
+        font-size: 20px;
+    }
+    .afficher_question h4{
+        font-size: 20px;
+    }
+    .scoreTag{
+        font-size: 18px;
+    }
+    .reponse_question{
+        font-size: 15px;
+    }
+    .container{
+        font-size: 15px;
+    }
+    .boutton_precendent, .button_suivant{
+        width: 20%;
+    }
+    .classement{
+        font-size: 18px;
+    }
+    .classement_score {
+        font-size: 18px;
+    }
+}
+@media screen and (min-width: 320px) and  (max-width: 667px){
+    .avatar{
+        display: none;
+    }
+    .image{
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+    }
+    .image img{
+        width: 60px;
+        height: 60px;
+    }
+    .titre_quizz{
+        margin-top: -15%;
+        margin-left: 5%;
+        font-size: 9px;
+    }
+    .entete{
+        height: 80px;
+    }
+    .logout{
+        width: 17%;
+        font-size: 9px;
+        margin-right: 1%;
+        height: 25px;
+    }
+    form h1{
+        font-size: 15px;
+    }
+    .afficher_question{
+        font-size: 15px;
+    }
+    .score_question{
+        font-size: 10px;
+    }
+    .reponse_question{
+        font-size: 15px;
+    }
+    .container{
+        font-size: 15px;
+    }
+    .checkmark{
+        height: 15px;
+        width: 15px;
+    }
+    .button_suivant{
+        margin-right: 18%;
+        width: 32%;
+        height: 33px;
+        font-size: 16px;
+    }
+    .boutton_precendent{
+        margin-right: 18%;
+        width: 32%;
+        height: 33px;
+        font-size: 16px;
+    }
+    .score a{
+        font-size: 16px;
+    }
+    .score{
+        height: auto;
+    }
+    .classement{
+        font-size: 13px;
+    }
+    .classement_score{
+        font-size: 13px;
+    }
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#yourBtn{
+    top: 150px;
+    font-family: calibri;
+    width: 100px;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid #026c7b;
+    text-align: center;
+    background-color: #026c7b;
+    cursor:pointer;
+}
+
+.classement{
+    font-size: 30px;
+
+}
+.class_score{
+    margin-top: 10%;
+    margin-left: 4%;
+}
+.points{
+    margin-right: 9%;
+    float: right;
+}
+.classement_score{
+    font-size: 30px;
+    margin-top: 6%;
+    margin-left: 2%;
+
+}
+.points_score{
+    margin-right: 9%;
+    float: right;
+    border-bottom: 4px solid #3ADDD6;
+}
+.score input{
+    width: 50%;
+    height: 60px;
+    font-size: 20px;
+    border: 0px solid white;
+    color: #2acaff;
+    background-color: rgba(122, 126, 122, 0.40);
+}
+.input_scores{
+    margin-top: -4.5px;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+.meilleur{
+    float: right;
+}
+.input_scores input:hover{
+
+}
+.input_scores input:focus{
+    color: #7a7e7a;
+    background-color: white;
+    outline:  none;
+}
+
+.error_input_admin{
+    color: red;
+    margin-top: -1px;
+    font-size: 15px;
+}
+
+/* ##################### PAGE INSCRIPTION ################### */
+
+.form_image_inscription{
+    display: flex;
+    background: white;
+    border-radius: 9px;
+    margin-top: 2%;
+    width: 70%;
+    margin-left: 14%;
+}
+.inscrire_inscription{
+    margin-left: 25%;
+    width: 135%;
+}
+.photo_avatar_inscription{
+    margin-left: 50%;
+    margin-top: 15%;
+}
+.formulaire_inscription{
+    margin-left: 25%;
+}
+.inpt_inscription{
+    height: 40px;
+    width: 290%;
+    border-radius: 7px 7px 7px 7px;
+}
+.avatar_inscription{
+    margin-top: 9%;
+}
+.choix_fichier_inscription{
+    float: right;
+    margin-right: -180%;
+    color: white;
+    height: 30px;
+}
+.creer_compte_inscription{
+    margin-top: 10%;
+    width:90%;
+    height: 30px;
+    background-color: #2acaff;
+    border-color: #2acaff;
+    margin-left: 74%;
+
+}
+hr{
+    width: 190%;
+    margin-left: 0;
+}
+.avatar_inscription{
+    margin-top: 5%;
+}
+
+.photoavatar_inscription{
+    margin-left: 45%;
+    border-radius: 50%;
+    width: 165px;
+    height: 165px;
+    border: 4px solid slategray;
+    margin-top: 14%;
+}
+.photoavatar_inscription img{
+    border-radius:50%;
+    width: 164px;
+    height: 164px;
+}
+/*
+input[type="file"] {
+    display: none;
+}*/
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#yourBtn{
+    top: 150px;
+    font-family: calibri;
+    width: 100px;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid #026c7b;
+    text-align: center;
+    background-color: #026c7b;
+    cursor:pointer;
+}
+@media screen and (min-width: 667px) and  (max-width: 1024px){
+    .inpt_inscription{
+        width: 190%;
+    }
+    .photo_avatar_inscription{
+        margin-left: 41%;
+        margin-top: 22%;
+    }
+    .choix_fichier_inscription{
+        margin-right: -140%;
+    }
+    .creer_compte_inscription{
+        margin-left: 37%;
+    }
+}
+@media screen and (min-width: 320px) and  (max-width: 667px){
+    h1{
+        font-size: 10px;
+    }
+    span{font-size: 10px
+    }
+    .inpt_inscription{
+        width: 110%;
+    }
+    hr{
+        width: 100%;
+    }
+    .photo_avatar_inscription{
+        margin-left: 19%;
+        margin-top: 33%;
+    }
+    .choix_fichier_inscription{
+        margin-right: -74%;
+    }
+    .form_image_inscription{
+        width: 92%;
+        margin-left: 5%;
+    }
+    .creer_compte_inscription{
+        width: 50%;
+        margin-left: 15%;
+    }
+}
+
+

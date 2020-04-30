@@ -12,6 +12,30 @@ textarea{
     background-color: rgba(83,90,95,0.16);
     border: 1px solid rgba(83,90,95,0.16);
 }
+.error{
+    color: red;
+    margin-top: -1px;
+    position: absolute;
+    margin-left: 12%;
+    font-size: 15px;
+
+}
+.erro_nbre_reponser{
+    color: red;
+    margin-top: 7%;
+    position: absolute;
+    margin-left: -34%;
+    font-size: 15px;
+    font-weight: initial;
+
+}
+.error_ipt{
+    color: red;
+    margin-top: 1%;
+    margin-left: 23%;
+    font-size: 15px;
+
+}
 .title_tag{
     font-size: 20px;
     font-family: Arial;
@@ -24,7 +48,7 @@ span{
     font-size: 22px;
     margin-left: 2%;
 }
-.inpt_score{
+ #inpt_score{
     width: 10%;
     margin-left: 2%;
     height: 30px;

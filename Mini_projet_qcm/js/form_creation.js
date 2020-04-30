@@ -8,9 +8,9 @@ function ajouterChamps(){
         tempInput = "";
         for(let i = 1 ; i <= nbChampsAjout; i++){
             nbInput++;
-            tempInput+= '<input required type="text" id="reponse'+i+'"  name="reponse'+i+'" placeholder="reponse'+i+'" class="inpt_js"/>' +
+            tempInput+= '<input error="error-'+i+'"  type="text" id="reponse'+i+'"  name="reponse'+i+'" placeholder="reponse'+i+'" class="inpt_js"/>' +
                 '<input  type="checkbox" id="c'+i+'"  name="c'+i+'" id="check_js" />  <a  onclick="Supprimer_element();" id="boutton_supprimer'+i+'"><img  src="../Images/Icônes/ic-supprimer.png"/></a>' +
-                '<br />';
+                '<span class="error_ipt" id="error-'+i+'"></span><br />';
         }
         DivToAdd.innerHTML = tempInput;
     }
@@ -23,9 +23,9 @@ function Ajouter_champs_radio(){
             tempInput = "";
             for(let i = 1 ; i <= nbChampsAjout; i++){
                 nbInput++;
-                tempInput+= '<input required type="text" id="reponse'+i+'" name="reponse'+i+'" placeholder="reponse'+i+'" class="inpt_js"/>' +
+                tempInput+= '<input error="error-5" type="text" id="reponse'+i+'" name="reponse'+i+'" placeholder="reponse'+i+'" class="inpt_js"/>' +
                     '<input  type="radio" id="c'+i+'" name="c'+i+'" id="check_js" />  <a  onclick="Supprimer_element();" id="boutton_supprimer'+i+'" ><img src="../Images/Icônes/ic-supprimer.png"/></a>' +
-                    '<br />';
+                    '<span class="erro_nbre_reponser" id="error-5"></span><br />';
             }
             DivToAdd.innerHTML = tempInput;
         }
@@ -42,14 +42,16 @@ function type_questions(){
     else{
         if(select_type === 'choix_simple'){
             titre.innerHTML = '<label class="title_number_response"><span style="margin-left: 3%">NBRE<br>REPONSE</span></label>\n' +
-                '        <input type="number" required class="number_reponse" name="nombre_reponse" placeholder="Ex:3" id="number_reponse">\n' +
-                '        <input type="button" class="ajouter_nbre_reponse" value="Ajouter" name="ajoutchamp" onclick="Ajouter_champs_radio();"><br>';
+                '        <input error="error-6" type="number"  class="number_reponse" name="nombre_reponse" placeholder="Ex:3" id="number_reponse">\n' +
+                '        <input type="button" class="ajouter_nbre_reponse" value="Ajouter" name="ajoutchamp" onclick="Ajouter_champs_radio();">' +
+                '<span class="erro_nbre_reponser" id="error-6"></span><br>';
             titre.body.appendChild(titre);
         }
         else{
             titre.innerHTML = '<label class="title_number_response"><span style="margin-left: 3%">NBRE<br>REPONSE</span></label>\n' +
-                '        <input type="number" required class="number_reponse" name="number_reponse" placeholder="Ex:3" id="number_reponse">\n' +
-                '        <input type="button" class="ajouter_nbre_reponse" value="Ajouter" name="ajoutchamp" onclick="ajouterChamps()"><br>';
+                '        <input type="number" error="error-7" class="number_reponse" name="number_reponse" placeholder="Ex:3" id="number_reponse">\n' +
+                '        <input type="button" class="ajouter_nbre_reponse" value="Ajouter" name="ajoutchamp" onclick="ajouterChamps()">' +
+                '        <span class="erro_nbre_reponser" id="error-7"></span><br>';
             if(typeof titre !== 'undefined') {
                 titre.body.appendChild(titre);
             }
@@ -69,6 +71,47 @@ function Supprimer_element(){
         });
     }
 }
+const inputs = document.getElementsByTagName('input');
+for (input of inputs){
+    input.addEventListener("keyup", function (e){
+        if(e.target.hasAttribute("error")){
+            var idDivErrors = e.target.getAttribute("error");
+            document.getElementById(idDivErrors).innerText=""
+        }
+    })
+}
+document.getElementById("form-connexion").addEventListener("submit", function (e){
+    const inputs = document.getElementsByTagName('input');
+    const champ_text = document.getElementsByTagName('textarea');
+    var error = false;
+    for (input of inputs){
+        if(input.hasAttribute("error")){
+            var idDivError = input.getAttribute("error");
+            if(!input.value) {
+                document.getElementById(idDivError).innerText="Ce Champ est obligatoire";
+                error = true;
+            }
+        }
+    }
+    for (text of champ_text){
+        if(text.hasAttribute("error")){
+            var idDivErrors = text.getAttribute("error");
+            if(!text.value){
+                document.getElementById(idDivErrors).innerText = "Ce Champ est obligatoire";
+                error = true;
+            }
+        }
+    }
+
+    if (error){
+        e.preventDefault();
+        return false;
+    }
+
+});
+
+
+
 
 
 

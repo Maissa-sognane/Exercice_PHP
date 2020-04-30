@@ -102,7 +102,7 @@
 
 
         // var_dump($reponse);
-       //var_dump($_SESSION['rep']);
+       var_dump($_SESSION['rep']);
         //  var_dump($parsed_json);
 
         $score = array(

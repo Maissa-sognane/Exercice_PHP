@@ -79,7 +79,6 @@ if(isset($_POST['prenom'], $_POST['nom'], $_POST['login'], $_POST['password'], $
 
             if(!(isset($js))){
                 $js[] = $user;
-
                 //header('Location :home_admin.php');
             }
             else{
@@ -94,15 +93,14 @@ if(isset($_POST['prenom'], $_POST['nom'], $_POST['login'], $_POST['password'], $
                 }
                 elseif(($ver == false)){
                     $js[] = $user;
-                   header('Location: home_admin.php');
+                 //  header('Location: home_admin.php');
                 }
-
+              //  var_dump($js);
             }
         }
-
-            $js = json_encode($js);
-            file_put_contents('user.json', $js);
-
+            $js_user = json_encode($js);
+        //var_dump(json_encode($js));
+            file_put_contents('user.json', $js_user);
     }
 }
 ?>

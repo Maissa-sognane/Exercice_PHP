@@ -157,22 +157,25 @@ if (isset($_POST['valider'])){
     <?php if(isset($msg)){echo "<div class='message_erreur'>$msg</div>";} ?>
     <form action="" method="post" name="form" id="form-connexion">
         <div>
-            <span id="error-1"></span>
             <label class="title_tag"><span>Questions</span></label>
-            <textarea required name="question" error="error-1"><?php if(isset($_POST['question'])){echo $_POST['question'];} ?></textarea><br>
+            <textarea   name="question" error="error-100"><?php if(isset($_POST['question'])){echo $_POST['question'];} ?></textarea><br>
+            <span class="error" id="error-100"></span>
         </div>
-        <span id="error-2"></span>
+
         <label class="title_score"><span class="score">Nbre de points   </span></label>
-        <input required error="error-2" class="inpt_score" type="number" name="score" value="<?php if(isset($_POST['score'])){echo $_POST['score'];} ?>"><br>
-        <span id="error-3"></span>
+        <input  error="error-200" id="inpt_score" type="number" name="score" value="<?php if(isset($_POST['score'])){echo $_POST['score'];} ?>"><br>
+        <span class="error" id="error-200"></span>
+
+        <span class="error" id="error-300"></span>
         <label class="title_type" style="">Type de réponse</label>
-        <select required error="error-3" name="type_question" style="margin-left: 9%" id="type_question" value="">
+        <select  error="error-300" name="type_question" style="margin-left: 9%" id="type_question" value="">
             <?php if(isset($_POST['type_question'])){echo $_POST['type_question'];}?>
-            <option class="defaut" value=""></option>
+            <option class="defaut" value="">Choisir type de reponse</option>
             <option name="choix_simple" class="choix_multiple" value="choix_simple">Choix simple</option>
             <option name="choix_multiple" class="choix_simple" value="choix_multiple">Choix multiple</option>
             <option name="choix_texte" class="choix_text" value="choix_texte">Choix texte</option>
         </select>
+
         <div class="ajouter_nbre_reponses"><a href="#" name="ajout_nombre_reponse"  onclick="type_questions()"><img src="../Images/Icônes/ic-ajout-réponse.png" style=""></a></div>
         <br>
         <div id='ajout_type_reponse'>
@@ -181,7 +184,7 @@ if (isset($_POST['valider'])){
 
         <div id="conteneur" style="margin-top: -2%">
         </div>
-        <p><button type="submit" class="enregistrer" name="valider" style="" onclick=""><strong>Enrégistrer</strong></button></p>
+        <p><button type="submit" class="enregistrer" name="valider" ><strong>Enrégistrer</strong></button></p>
     </form>
 </div>
 </body>

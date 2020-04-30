@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Mini_projet_qcm.iml" filepath="$PROJECT_DIR$/.idea/Mini_projet_qcm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../projet_QCM/.idea/projet_QCM.iml" filepath="$PROJECT_DIR$/../projet_QCM/.idea/projet_QCM.iml" />
     </modules>
   </component>
 </project>

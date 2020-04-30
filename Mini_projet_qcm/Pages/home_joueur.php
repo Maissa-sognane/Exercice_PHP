@@ -145,17 +145,20 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                                 }
                             }
                             if(sizeof($question_json[$i]->{'reponse'}->{'bonne_reponse'}) > 1){
+                                $nbr=0;
                                 for ($j=0; $j<sizeof($question_json[$i]->{'reponse'}->{'bonne_reponse'});$j++){
-
                                     if(isset($_POST['boutton_suivant']) || isset($_POST['button_terminer'])){
                                         if(isset($_POST["reponse_bonne$j"])){
                                             if(isset($question_json[$i]->{'reponse'}->{'bonne_reponse'}[$j])){
                                                 if ($question_json[$i]->{'reponse'}->{'bonne_reponse'}[$j] == $_POST["reponse_bonne$j"]){
-                                                    $reponse = 1;
+                                                   $nbr++;
                                                 }
                                             }
                                         }
                                     }
+                                }
+                                if($nbr === sizeof($question_json[$i]->{'reponse'}->{'bonne_reponse'})){
+                                    $reponse = 1;
                                 }
                                 for ($k=0;$k<count($question_json[$i]->{'reponse'}->{'fausse_reponse'});$k++){
                                     if(isset($_POST['boutton_suivant']) || isset($_POST['button_terminer'])){

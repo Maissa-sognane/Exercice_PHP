@@ -15,6 +15,8 @@ togg2.onclick = togg;
 
 
 
+
+
 function getFile(){
     document.getElementById("upfile").click();
 }

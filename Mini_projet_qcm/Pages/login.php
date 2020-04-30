@@ -96,14 +96,14 @@ if(isset($_POST['login'], $_POST['password'])) {
     </form>
 </div>
 <script >
-    /*
+
     const inputs = document.getElementsByTagName('input');
     for (input of inputs){
         input.addEventListener("keyup", function (e){
             if(e.target.hasAttribute("error")){
                 var idDivErrors = e.target.getAttribute("error");
-                document.getElementById(idDivErrors).innerText=""
-            }
+                document.getElementById(idDivErrors).innerText="";
+            };
         })
     }
 document.getElementById("form-connexion").addEventListener("submit", function (e){
@@ -114,8 +114,9 @@ document.getElementById("form-connexion").addEventListener("submit", function (e
             var idDivError = input.getAttribute("error");
                 if(!input.value) {
                     document.getElementById(idDivError).innerText="Ce Champ est obligatoire";
+                    error = true;
                 }
-                error = true;
+
         }
     }
     if (error){
@@ -124,7 +125,7 @@ document.getElementById("form-connexion").addEventListener("submit", function (e
     }
 
 });
-     */
+
 </script>
 </body>
 </html>

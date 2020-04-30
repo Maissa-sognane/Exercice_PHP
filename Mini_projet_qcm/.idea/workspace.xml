@@ -1,7 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f897afa-7252-4dab-95c7-9f03c9781a16" name="Default Changelist" comment="" />
+    <list default="true" id="9f897afa-7252-4dab-95c7-9f03c9781a16" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/Images/Icônes/ic-ajout-active.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/Images/Icônes/ic-ajout-réponse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/Images/Icônes/ic-ajout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/Images/Icônes/ic-liste-active.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/Images/Icônes/ic-liste.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/Images/Icônes/ic-login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/Images/Icônes/ic-supprimer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/Images/Icônes/icone-password.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/Images/img-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/Images/logo-QuizzSA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/data/nbre_question.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/data/questions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/data/score.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/data/users.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/js/score.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/pages/formulaire_creation_admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/pages/formulaire_creation_questions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/pages/home_admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/pages/home_joueur.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/pages/inscription.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/pages/liste_joueur.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/pages/liste_question.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/pages/login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/pages/traitement_hohme_joueur.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/pages/validation_jeu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Adama.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Aly.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Amadou.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Bamba.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Keba.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Maguatte.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Maguette.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Maissa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Malick.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Mamadou.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Mouhamed.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Mouhamed.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Selvy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/Sountou.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/ameth.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/fatou fall.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../projet_QCM/photo_avatar/root.jpg" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,10 +105,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/COURS" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -99,21 +160,48 @@
       <workItem from="1587747796625" duration="21000" />
       <workItem from="1587754972340" duration="21582000" />
       <workItem from="1587805699595" duration="5834000" />
+      <workItem from="1587863482905" duration="5582000" />
+      <workItem from="1587905730619" duration="9039000" />
+      <workItem from="1587927874515" duration="8992000" />
+      <workItem from="1587979905339" duration="3275000" />
+      <workItem from="1587993286034" duration="88000" />
+      <workItem from="1587993383314" duration="3924000" />
+      <workItem from="1588003619017" duration="5445000" />
+      <workItem from="1588014799498" duration="5483000" />
+      <workItem from="1588027077356" duration="4358000" />
+      <workItem from="1588054521474" duration="45000" />
+      <workItem from="1588108619462" duration="575000" />
+      <workItem from="1588118026780" duration="1327000" />
+      <workItem from="1588139812547" duration="40000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="434" y="187" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587224599501">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="434" y="187" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1587224599501" />
-    <state x="463" y="139" key="FileChooserDialogImpl" timestamp="1587291004092">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="682" y="223" width="530" height="605" key="FileChooserDialogImpl" timestamp="1588139850228">
+      <screen x="46" y="34" width="1874" height="1046" />
     </state>
     <state x="463" y="139" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1587291004092" />
+    <state x="682" y="223" width="530" height="605" key="FileChooserDialogImpl/46.34.1874.1046@46.34.1874.1046" timestamp="1588139850228" />
+    <state x="683" y="223" width="530" height="605" key="FileChooserDialogImpl/48.34.1872.1046@48.34.1872.1046" timestamp="1587993419560" />
     <state x="543" y="248" key="NewPhpFileDialog" timestamp="1587225507794">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -142,6 +230,10 @@
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1586470366958" />
     <state x="339" y="171" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1587332293487" />
+    <state x="563" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1588004062454">
+      <screen x="48" y="34" width="1872" height="1046" />
+    </state>
+    <state x="563" y="45" width="840" height="1034" key="search.everywhere.popup/48.34.1872.1046@48.34.1872.1046" timestamp="1588004062454" />
     <state x="712" y="467" width="540" height="179" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1587659903797">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
