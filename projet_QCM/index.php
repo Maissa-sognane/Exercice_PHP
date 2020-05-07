@@ -9,6 +9,8 @@ session_start();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/style.css?refresh=<?php echo rand();?>">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://kit.fontawesome.com/8435a2a226.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>

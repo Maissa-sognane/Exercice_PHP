@@ -40,6 +40,7 @@
     $questions = file_get_contents('./data/questions.json');
     $question_json = json_decode($questions,true);
     shuffle($question_json);
+    $_SESSION['questions'] = $question_json;
 
     //var_dump($score);
   //  echo $_SESSION['points'];

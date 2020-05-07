@@ -220,6 +220,9 @@ a{
 .img_ic_list{
     margin-left: 45%;
 }
+.parametres li  img:hover{
+    color: rgba(173,17,14,0.77);
+}
 .para_gauche{
     background-color: white;
     width: 60%;

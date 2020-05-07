@@ -89,7 +89,7 @@ if(isset($_POST['prenom'], $_POST['nom'], $_POST['login'], $_POST['password'], $
                 }
                 elseif(($ver == false)){
                     $js[] = $user;
-                    header('Location: login.php');
+                  //  header('Location: ../index.php');
                 }
 
             }

@@ -85,14 +85,22 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                 <?php
                 $questions = file_get_contents('./data/questions.json');
                 $question_json = json_decode($questions,true);
-                shuffle($question_json);
+                if(!isset($questions_repondu ) && !empty($questions_repondu )) {
+                    $questions_repondu = [];
+                }
+                if(!isset($_SESSION['reponse_en_cours']) && !empty($_SESSION['reponse_en_cours'])){
+                $_SESSION['reponse_en_cours'] = array(
+                    $_SESSION['login']=>''
+                );
+                }
+                //shuffle($question_json);
 /*
                 if(!isset($_SESSION['rep']) && !empty($_SESSION['rep'])) {
                     $_SESSION['rep'] = array(
                         'score'=>0
                     );
                 }
-*/
+*/                 // var_dump($question_json[1]);
                 for ($i=0; $i<count($question_json); $i++){
                     if ($question_json[$i]){
                         $reponse = '';
@@ -101,6 +109,7 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                             if(sizeof($question_json[$i]['reponse']['bonne_reponse']) == 1){
                                 if(isset($_SESSION['boutton_suivant']) || isset($_POST['button_terminer'])){
                                     if(isset($_POST["reponse0"])){
+                                        $_SESSION['reponse_check'] = $_POST['reponse0'];
                                         if(isset($question_json[$i]['reponse']['bonne_reponse'][0])){
                                             if ($question_json[$i]['reponse']['bonne_reponse'][0] == $_POST["reponse0"]){
                                                 $reponse = 1;
@@ -121,7 +130,7 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                                 }
                             }
                             if(sizeof($question_json[$i]['reponse']['bonne_reponse']) > 1){
-                                $nb=0;
+                                $nbr=0;
                                 for ($j=0; $j<sizeof($question_json[$i]['reponse']['bonne_reponse']);$j++){
                                     if(isset($_SESSION['boutton_suivant']) || isset($_POST['button_terminer'])){
                                         if(isset($_POST["reponse_bonne$j"])){
@@ -132,10 +141,11 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                                             }
                                         }
                                     }
+                                    if($nbr == sizeof($question_json[$i]['reponse']['bonne_reponse'])){
+                                        $reponse = 1;
+                                    }
                                 }
-                                if($nbr == sizeof($question_json[$i]['reponse']['bonne_reponse'])){
-                                    $reponse = 1;
-                                }
+
                                 for ($k=0;$k<count($question_json[$i]['reponse']['fausse_reponse']);$k++){
                                     if(isset($_SESSION['boutton_suivant']) || isset($_POST['button_terminer'])){
                                         if(isset($_POST["reponse$k"])){
@@ -150,6 +160,7 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                             }
 
                             if($reponse == 1){
+                                $_SESSION['reponse_en_cours'][$_SESSION['login']][] = $question_json[$i];
                                 $_SESSION['rep']['score'] = $_SESSION['rep']['score'] + $_SESSION['score'];
                             }
                         }
@@ -157,8 +168,10 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                             //'.$question_json[$i][0]->{'reponse'}.'
                             if(isset($_SESSION['boutton_suivant']) || isset($_POST['button_terminer'])){
                                 if (isset($_POST["reponse_texte0"])){
+                                    $_SESSION['reponse'] = $_POST['reponse_texte0'];
                                     if(isset($question_json[$i]['reponse'])){
                                         if ($question_json[$i]['reponse'] == $_POST["reponse_texte0"]) {
+                                            $_SESSION['reponse_en_cours'][$_SESSION['login']][] = $question_json[$i];
                                             $_SESSION['rep']['score'] = $_SESSION['rep']['score'] + $_SESSION['score'];
                                         }
                                     }
@@ -169,6 +182,7 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                     }
 
                 }
+              //var_dump($_SESSION['reponse_en_cours']);
                 if(!isset($_POST['button_terminer'])){
                    // var_dump($question_json);
                     require_once 'traitement_hohme_joueur.php';
@@ -244,6 +258,20 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                     }
                     $_SESSION['rep']['score'] = 0;
                     // $_SESSION['questions'] =  $question_json;
+
+                    $reponses_vrai = file_get_contents("./data/Tag.json");
+                    $reponses_vrai = json_decode($reponses_vrai, true);
+
+                        if(key_exists($_SESSION['login'], $reponses_vrai)){
+                            $reponses_vrai[$_SESSION['login']][] = $_SESSION['reponse_en_cours'];
+                        }else{
+                            $reponses_vrai[] = $_SESSION['reponse_en_cours'];
+                        }
+
+                    $reponses_vrai = json_encode($reponses_vrai);
+                    file_put_contents('./data/Tag.json', $reponses_vrai);
+                    $_SESSION['reponse_en_cours'] = null;
+
                 }
                 if(isset($_POST['button_terminer'])){
                     include 'validation_jeu.php';
@@ -302,6 +330,8 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
              }
          }
      }
+     $meilleur = file_get_contents('./data/meilleur_joueur.json');
+     $meilleur = json_decode($meilleur, true);
      //var_dump(count($Tab_classement));
      $Tab_classement_par_score = array_unique($Tab_classement, SORT_REGULAR);
      //var_dump(count($T));
@@ -311,11 +341,24 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
      $color2 = "#e56CA7";
      $color3 = "#e56946";
      $color4 = "#F8FDFD";
-
+    $_SESSION['tab_classement'] = $Tab_classement_par_score;
+    for ($j=0;$j<count($Tab_classement);$j++){
+        if(isset($Tab_classement_par_score[$j])){
+            $meilleur_joueur[] = $Tab_classement_par_score[$j];
+        }
+    }
+    //var_dump($meilleur_joueur);
+    $meilleur_joueur = json_encode($meilleur_joueur);
+    file_put_contents('./data/meilleur_joueur.json', $meilleur_joueur);
 
      $color = "";
      $nbr = 0;
-
+    $taille = count($Tab_classement);
+    $tail = file_get_contents('./data/nbre_question.json');
+    $tail = json_decode($tail);
+    $tail[1] = $taille;
+    $tail = json_encode($tail);
+    file_put_contents('./data/nbre_question.json', $tail);
      for ($j=0;$j<count($Tab_classement);$j++){
          echo '<div class="classement">';
          if($nbr==0){
@@ -349,8 +392,6 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
              break;
          }
      }
-
-
      ?>
                     </div>
                 </div>

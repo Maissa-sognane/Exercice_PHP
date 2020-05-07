@@ -84,6 +84,7 @@ is_connecte();
                 <li id="togg2"><a href="?lien=admin&menu=créer_admin">Créer Admin<img class="img_icone_ajout-active" src="./Images/Icônes/ic-ajout-active.png"></a></li>
                 <li id="togg3"><a href="?lien=admin&menu=liste_joueur">Liste joueurs<img class="img_ic_list" src="./Images/Icônes/ic-liste.png" alt=""></a></li>
                 <li id="togg4"><a href="?lien=admin&menu=creation_joueur">Créer Questions<img class="img_ic_ajout" src="./Images/Icônes/ic-ajout.png" alt=""></a></li>
+                <li id="togg4"><a href="?lien=admin&menu=graphique">Graphique<img class="img_ic_ajout" src="./Images/Icônes/ic-ajout.png" alt=""></a></li>
             </ul>
         </div>
     </div>
@@ -109,6 +110,9 @@ is_connecte();
                     break;
                 case 'creation_joueur':
                     include('formulaire_creation_questions.php');
+                    break;
+                case 'graphique':
+                    include ('graphique.php');
                     break;
             }
         }
