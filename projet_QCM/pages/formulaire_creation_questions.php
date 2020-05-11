@@ -6,116 +6,53 @@ if (isset($_POST['valider'])){
         if(empty($_POST['question'])){
             $msg = 'Veuillez entrer votre question';
         }
-        elseif (empty($_POST['score'])){
+        else{
+        if (empty($_POST['score'])){
             $msg = 'Veuillez saisir le nombre de point de la question';
         }
-    elseif ($_POST['score']<1){
-        $msg = 'Veuillez saisir un nombre positif';
-    }
-    elseif(isset($_POST['type_question'])){
-        $score = $_POST['score'];
-        $question = $_POST['question'];
-        if(empty($_POST['type_question'])){
-            $msg='Veullez choir un type de réponse';
+        elseif ($_POST['score']<1){
+            $msg = 'Veuillez saisir un nombre positif';
         }
-        else {
-            $type_reponse = $_POST['type_question'];
-            if ($type_reponse == 'choix_simple') {
-                if ((isset($_POST['nombre_reponse']))) {
-                    if (empty($_POST['nombre_reponse'])) {
-                        $msg = 'veuillez entrer le nombre de reponse';
-                    } elseif ($_POST['nombre_reponse'] <= 0) {
-                        $msg = 'veuillez entrer le nombre strictement positif';
-                    } else {
-                        if (!(isset($rep)) && !(empty($rep))){
-                            $rep = array(
-                                'bonne_reponse' => '',
-                                'fausse_reponse' => ''
-                            );
+        else{
+        if(isset($_POST['type_question'])){
+            $score = $_POST['score'];
+            $question = $_POST['question'];
+            if(empty($_POST['type_question'])){
+                $msg='Veullez choir un type de réponse';
+            }
+            else {
+                $type_reponse = $_POST['type_question'];
+               if ($type_reponse === 'choix_simple') {
+                    if ((isset($_POST['nombre_reponse']))){
+                        if (empty($_POST['nombre_reponse'])) {
+                            $msg = 'veuillez entrer le nombre de reponse';
                         }
-                        for ($i = 1; $i <= $_POST['nombre_reponse']; $i++){
-                            if (isset($_POST['reponse'.$i])) {
-                                if (empty($_POST['reponse'.$i])) {
-                                    $msg = "Donner la reponse $i";
-                                    break;
-                                } else {
-                                    if (isset($_POST["c$i"])){
-                                        $rep['bonne_reponse'][] = $_POST['reponse'.$i];
-                                    }
-                                    else {
-                                        $rep['fausse_reponse'][] = $_POST['reponse'.$i];
-                                    }
-                                }
+                        elseif ($_POST['nombre_reponse'] <= 0) {
+                            $msg = 'veuillez entrer le nombre strictement positif';
+                        }
+                        else {
+                            if (!(isset($rep)) && !(empty($rep))){
+                                $rep = array(
+                                    'bonne_reponse' => '',
+                                    'fausse_reponse' => ''
+                                );
                             }
-                        }
-                        //var_dump($rep);
-                             if((isset($rep['bonne_reponse']) && !empty($rep['bonne_reponse'])) && (isset($rep['fausse_reponse']) && !empty($rep['fausse_reponse']))){
-                            $questions = array(
-                                'questions' => $question,
-                                'score' => $score,
-                                'reponse' => $rep
-                            );
-                            $question_js[] = $questions;
-                            $question_js = json_encode($question_js);
-                            file_put_contents('./data/questions.json', $question_js);
-                        }
-                       /* if(!isset($rep['bonne_reponse']) && empty($rep['bonne_reponse'])){
-                            $msg = 'Veuillez cocher la bonne reponse';
-                        }*/
-                    }
-                }
-            }
-            if ($type_reponse == 'choix_texte') {
-                if (isset($_POST['reponse_texte']) && empty($_POST['reponse_texte'])) {
-                    $msg = 'Veuillez entrer votre reponse';
-                } else {
-                    $reponse_simple = array(
-                        'questions' => $question,
-                        'score' => $score,
-                        'reponse' => $_POST['reponse_texte'],
-                    );
-                    $questions = $reponse_simple;
-                    $question_js[] = $questions;
-                    $question_js = json_encode($question_js);
-                    file_put_contents('./data/questions.json', $question_js);
-                }
-            }
-            if ($type_reponse == 'choix_multiple') {
-                if ((isset($_POST['number_reponse']))) {
-                    if (empty($_POST['number_reponse'])) {
-                        $msg = 'veuillez entrer le nombre de reponse';
-                    } elseif ($_POST['number_reponse'] <= 0) {
-                        $msg = 'veuillez entrer le nombre strictement positif';
-                    } else {
-                        if (!(isset($rep)) && !(empty($rep))) {
-                            $rep = array(
-                                'bonne_reponse' => '',
-                                'fausse_reponse' => ''
-                            );
-                        }
-                        $bonne_reponse = '';
-                        $mauvaise_response = '';
-                        for ($i = 1; $i <= $_POST['number_reponse']; $i++){
-                            if (isset($_POST['reponse' . $i])) {
-                                if (empty($_POST['reponse' . $i])) {
-                                    $msg = "Donner la reponse $i";
-                                    break;
-                                } else {
-                                    if (isset($_POST["c$i"])) {
-                                        $rep['bonne_reponse'][] = $_POST['reponse' . $i];
+                            for ($i = 1; $i <= $_POST['nombre_reponse']; $i++){
+                                if (isset($_POST["reponse$i"])) {
+                                    if (empty($_POST["reponse$i"])) {
+                                        $msg = "Donner la reponse $i";
+                                        break;
                                     } else {
-                                        $rep['fausse_reponse'][] = $_POST['reponse' . $i];
+                                        if (isset($_POST["c$i"])){
+                                            $rep['bonne_reponse'][] = $_POST['reponse'.$i];
+                                        }
+                                        else {
+                                            $rep['fausse_reponse'][] = $_POST['reponse'.$i];
+                                        }
                                     }
                                 }
                             }
-                        }
-                        if(isset($rep['bonne_reponse']) && empty($rep['bonne_reponse'])){
-                            $msg = 'Veuillez cocher les bonnes reponses';
-                        }
-                        if(isset($rep['fausse_reponse']) && empty($rep['fausse_reponse'])){
-                            $msg = 'Veuillez donner les mauvaises réponses';
-                        }
-                        if((isset($rep['bonne_reponse']) && !empty($rep['bonne_reponse'])) && (isset($rep['fausse_reponse']) && !empty($rep['fausse_reponse']))){
+
                             $questions = array(
                                 'questions' => $question,
                                 'score' => $score,
@@ -124,14 +61,82 @@ if (isset($_POST['valider'])){
                             $question_js[] = $questions;
                             $question_js = json_encode($question_js);
                             file_put_contents('./data/questions.json', $question_js);
+
                         }
                     }
                 }
+                if ($type_reponse === 'choix_texte') {
+                    if (isset($_POST['reponse_texte']) && empty($_POST['reponse_texte'])) {
+                        $msg = 'Veuillez entrer votre reponse';
+                    } else {
+                        $reponse_simple = array(
+                            'questions' => $question,
+                            'score' => $score,
+                            'reponse' => $_POST['reponse_texte'],
+                        );
+
+                        $question_js[] = $reponse_simple;
+                        $question_js = json_encode($question_js);
+                        file_put_contents('./data/questions.json', $question_js);
+
+
+                    }
+                }
+                else {
+                    if ((isset($_POST['number_reponse']))) {
+                        if (empty($_POST['number_reponse'])) {
+                            $msg = 'veuillez entrer le nombre de reponse';
+                        } elseif ($_POST['number_reponse'] <= 0) {
+                            $msg = 'veuillez entrer le nombre strictement positif';
+                        } else {
+                            if (!(isset($rep)) && !(empty($rep))) {
+                                $rep = array(
+                                    'bonne_reponse' => '',
+                                    'fausse_reponse' => ''
+                                );
+                            }
+                            $bonne_reponse = '';
+                            $mauvaise_response = '';
+                            for ($i = 1; $i <= $_POST['number_reponse']; $i++){
+                                if (isset($_POST['reponse'.$i])) {
+                                    if (empty($_POST['reponse'.$i])) {
+                                        $msg = "Donner la reponse $i";
+                                        break;
+                                    } else {
+                                        if (isset($_POST["c$i"])) {
+                                            $rep['bonne_reponse'][] = $_POST['reponse' . $i];
+                                        } else {
+                                            $rep['fausse_reponse'][] = $_POST['reponse' . $i];
+                                        }
+                                    }
+                                }
+                            }
+                            if(isset($rep['bonne_reponse']) && empty($rep['bonne_reponse'])){
+                                $msg = 'Veuillez cocher les bonnes reponses';
+                            }
+                            if(isset($rep['fausse_reponse']) && empty($rep['fausse_reponse'])){
+                                $msg = 'Veuillez donner les mauvaises réponses';
+                            }
+                            if((isset($rep['bonne_reponse']) && !empty($rep['bonne_reponse'])) && (isset($rep['fausse_reponse']) && !empty($rep['fausse_reponse']))){
+                                $questions = array(
+                                    'questions' => $question,
+                                    'score' => $score,
+                                    'reponse' => $rep
+                                );
+                                $question_js[] = $questions;
+                                $question_js = json_encode($question_js);
+                                file_put_contents('./data/questions.json', $question_js);
+                            }
+                        }
+                    }
+                }
+
+                unset($_POST['valider']);
             }
         }
-    }
+        }
+        }
 }
-
 ?>
 
 <h1 class="titre_para_ques">PARAMÉTRER VOTRE QUESTION</h1>
@@ -148,9 +153,8 @@ if (isset($_POST['valider'])){
         <input error="error-200" class="inpt_score" type="number" name="score" value="<?php if(isset($_POST['score'])){echo $_POST['score'];} ?>"><br>
         <span class="error" id="error-200"></span>
         <label class="title_type" style="">Type de réponse</label>
-        <select  error="error-300" name="type_question" style="margin-left: 9%" id="type_question" value="">
+        <select  error="error-300" name="type_question" style="margin-left: 9%" id="type_question">
             <?php if(isset($_POST['type_question'])){echo $_POST['type_question'];}?>
-            <option class="defaut" value=""></option>
             <option name="choix_simple" class="choix_multiple" value="choix_simple">Choix simple</option>
             <option name="choix_multiple" class="choix_simple" value="choix_multiple">Choix multiple</option>
             <option name="choix_texte" class="choix_text" value="choix_texte">Choix texte</option>
@@ -164,7 +168,7 @@ if (isset($_POST['valider'])){
 
         <div id="conteneur" style="margin-top: -2%">
         </div>
-        <p><button type="submit" class="enregistrer" name="valider" style="" onclick=""><strong>Enrégistrer</strong></button></p>
+        <p><button type="submit" class="enregistrer" name="valider"><strong>Enrégistrer</strong></button></p>
     </form>
 </div>
 

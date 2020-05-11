@@ -1,7 +1,7 @@
 <?php
 
 $msg = '';
-
+$json = file_get_contents('user.json');
 $parsed_json = get_data();
 
 

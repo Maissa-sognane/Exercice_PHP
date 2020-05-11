@@ -1,42 +1,19 @@
 let togg1 = document.getElementById("togg1");
 let togg2 = document.getElementById("togg2");
-let togg3 = document.getElementById("togg3");
-let togg4 = document.getElementById("togg4");
+
 let d1 = document.getElementById("d1");
 let d2 = document.getElementById("d2");
-let d3 = document.getElementById("d3");
-let d4 = document.getElementById("d4");
+
 togg1.addEventListener("click", () => {
         d1.style.display = "block";
         d2.style.display = "none";
-        d3.style.display = "none";
-        d4.style.display = "none";
-})
 
-function togg(){
-        d2.style.display = "block";
-        d1.style.display = "none";
-        d3.style.display = "none";
-        d4.style.display = "none";
-};
-togg2.onclick = togg;
+});
 
-function togg_3(){
-    d3.style.display = "block";
+togg2.addEventListener("click", ()=>{
+    d2.style.display = "block";
     d1.style.display = "none";
-    d2.style.display = "none";
-    d4.style.display = "none";
-};
-togg3.onclick = togg_3;
-
-function togg_4(){
-    d3.style.display = "none";
-    d1.style.display = "none";
-    d2.style.display = "none";
-    d4.style.display = "block";
-};
-togg4.onclick = togg_4;
-
+});
 
 var loadFile = function (event) {
     var output = document.getElementById("output");
@@ -70,7 +47,7 @@ function ajouterChamps(){
         for(let i = 1 ; i <= nbChampsAjout; i++){
             nbInput++;
             tempInput+= '<input error="error-'+i+'"  type="text" id="reponse'+i+'"  name="reponse'+i+'" placeholder="reponse'+i+'" class="inpt_js"/>' +
-                '<input  type="checkbox" id="c'+i+'"  name="c'+i+'" id="check_js" />  <a  onclick="Supprimer_element();" id="boutton_supprimer'+i+'"><img  src="./Images/Icônes/ic-supprimer.png"/></a>' +
+                '<input  type="checkbox" id="c'+i+'"  name="c'+i+'" id="check_js" />  <a class="img_sup"  onclick="Supprimer_element();" id="boutton_supprimer'+i+'"><img  src="./Images/Icônes/ic-supprimer.png"/></a>' +
                 '<span class="error_ipt" id="error-'+i+'"></span><br />';
         }
         DivToAdd.innerHTML = tempInput;
@@ -85,7 +62,7 @@ function Ajouter_champs_radio(){
         for(let i = 1 ; i <= nbChampsAjout; i++){
             nbInput++;
             tempInput+= '<input error="error-5" type="text" id="reponse'+i+'" name="reponse'+i+'" placeholder="reponse'+i+'" class="inpt_js"/>' +
-                '<input  type="radio" id="c'+i+'" name="c'+i+'" id="check_js" />  <a  onclick="Supprimer_element();" id="boutton_supprimer'+i+'" ><img src="../Images/Icônes/ic-supprimer.png"/></a>' +
+                '<input  type="radio" id="c'+i+'" name="c'+i+'" id="check_js" />  <a class="img_sup" onclick="Supprimer_element();" id="boutton_supprimer'+i+'" ><img src="./Images/Icônes/ic-supprimer.png"/></a>' +
                 '<span class="erro_nbre_reponser" id="error-5"></span><br />';
         }
         DivToAdd.innerHTML = tempInput;
@@ -103,14 +80,14 @@ function type_questions(){
     }
     else{
         if(select_type === 'choix_simple'){
-            titre.innerHTML = '<label class="title_number_response"><span style="margin-left: 3%">NBRE<br>REPONSE</span></label>\n' +
+            titre.innerHTML = '<label class="title_number_response"><span style="margin-left: 3%">NBRE REPONSE</span></label>\n' +
                 '        <input error="error-600" type="number"  class="number_reponse" name="nombre_reponse" placeholder="Ex:3" id="number_reponse">\n' +
                 '        <input type="button" class="ajouter_nbre_reponse" value="Ajouter" name="ajoutchamp" onclick="Ajouter_champs_radio();">' +
                 '<span class="erro_nbre_reponser" id="error-600"></span><br>';
             titre.body.appendChild(titre);
         }
         else{
-            titre.innerHTML = '<label class="title_number_response"><span style="margin-left: 3%">NBRE<br>REPONSE</span></label>\n' +
+            titre.innerHTML = '<label class="title_number_response"><span style="margin-left: 3%">NBRE REPONSE</span></label>\n' +
                 '        <input type="number" error="error-7" class="number_reponse" name="number_reponse" placeholder="Ex:3" id="number_reponse">\n' +
                 '        <input type="button" class="ajouter_nbre_reponse" value="Ajouter" name="ajoutchamp" onclick="ajouterChamps()">' +
                 '        <span class="erro_nbre_reponser" id="error-7"></span><br>';
@@ -171,6 +148,10 @@ document.getElementById("form-connexion").addEventListener("submit", function (e
     }
 
 });
+
+
+
+
 
 
 

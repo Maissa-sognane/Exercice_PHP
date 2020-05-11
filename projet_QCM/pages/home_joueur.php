@@ -1,8 +1,7 @@
 <?php
 echo '<div class="entete_joueur">';
 echo '<div class="image_joueur">';
-//echo $_SESSION['nom'];
-//var_dump($_SESSION);
+
 $parsed_json = get_data();
 if(isset($_SESSION['photo_joueur'])) {
     $photo = $_SESSION['photo_joueur'];
@@ -83,6 +82,15 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
         <div class="para_gauche_joueur">
             <div class="reponse_joueur">
                 <?php
+                if(!isset($_SESSION['table_question_joueur']) && !empty($_SESSION['table_question_joueur'])) {
+                    $_SESSION['table_question_joueur'] = [];
+                }
+                if(!isset($_SESSION['reponse_cocher_deja']) && !empty($_SESSION['reponse_cocher_deja'])){
+                    $_SESSION['reponse_cocher_deja'] = array();
+                }
+                if(!isset($_SESSION['question_deja_repondu']) && !empty($_SESSION['question_deja_repondu'])){
+                    $_SESSION['question_deja_repondu'] = array();
+                }
                 $questions = file_get_contents('./data/questions.json');
                 $question_json = json_decode($questions,true);
                 if(!isset($questions_repondu ) && !empty($questions_repondu )) {
@@ -93,14 +101,8 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                     $_SESSION['login']=>''
                 );
                 }
-                //shuffle($question_json);
-/*
-                if(!isset($_SESSION['rep']) && !empty($_SESSION['rep'])) {
-                    $_SESSION['rep'] = array(
-                        'score'=>0
-                    );
-                }
-*/                 // var_dump($question_json[1]);
+                $_SESSION['reponse_donner'] = "";
+                $_SESSION['tmp_reponse'] = false;
                 for ($i=0; $i<count($question_json); $i++){
                     if ($question_json[$i]){
                         $reponse = '';
@@ -109,7 +111,7 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                             if(sizeof($question_json[$i]['reponse']['bonne_reponse']) == 1){
                                 if(isset($_SESSION['boutton_suivant']) || isset($_POST['button_terminer'])){
                                     if(isset($_POST["reponse0"])){
-                                        $_SESSION['reponse_check'] = $_POST['reponse0'];
+                                        $_SESSION['table_question_joueur'][$_SESSION['questions_afficher']] = $_POST["reponse0"];
                                         if(isset($question_json[$i]['reponse']['bonne_reponse'][0])){
                                             if ($question_json[$i]['reponse']['bonne_reponse'][0] == $_POST["reponse0"]){
                                                 $reponse = 1;
@@ -119,6 +121,7 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                                     for ($k=0;$k<count($question_json[$i]['reponse']['fausse_reponse']);$k++){
                                         if(isset($_SESSION['boutton_suivant']) || isset($_POST['button_terminer'])){
                                             if(isset($_POST["reponse0"])){
+                                                $_SESSION['table_question_joueur'][$_SESSION['questions_afficher']] = $_POST["reponse0"];
                                                 if(isset($question_json[$i]['reponse']['fausse_reponse'][$k])){
                                                     if ($question_json[$i]['reponse']['fausse_reponse'][$k] == $_POST["reponse0"]){
                                                         $reponse = 2;
@@ -134,6 +137,8 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                                 for ($j=0; $j<sizeof($question_json[$i]['reponse']['bonne_reponse']);$j++){
                                     if(isset($_SESSION['boutton_suivant']) || isset($_POST['button_terminer'])){
                                         if(isset($_POST["reponse_bonne$j"])){
+                                            $_SESSION['reponse_cocher_deja'][] = $_POST["reponse_bonne$j"];
+                                            $_SESSION['table_question_joueur'][$_SESSION['questions_afficher']] = $_POST["reponse_bonne$j"];
                                             if(isset($question_json[$i]['reponse']['bonne_reponse'][$j])){
                                                 if ($question_json[$i]['reponse']['bonne_reponse'][$j] == $_POST["reponse_bonne$j"]){
                                                     $nbr++;
@@ -145,10 +150,11 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                                         $reponse = 1;
                                     }
                                 }
-
                                 for ($k=0;$k<count($question_json[$i]['reponse']['fausse_reponse']);$k++){
                                     if(isset($_SESSION['boutton_suivant']) || isset($_POST['button_terminer'])){
                                         if(isset($_POST["reponse$k"])){
+                                            $_SESSION['reponse_cocher_deja'][] = $_POST["reponse$k"];
+                                            $_SESSION['table_question_joueur'][$_SESSION['questions_afficher']] = $_POST["reponse$k"];
                                             if(isset($question_json[$i]['reponse']['fausse_reponse'][$k])){
                                                 if ($question_json[$i]['reponse']['fausse_reponse'][$k] == $_POST["reponse$k"]){
                                                     $reponse = 2;
@@ -157,22 +163,27 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                                         }
                                     }
                                 }
+
                             }
 
                             if($reponse == 1){
                                 $_SESSION['reponse_en_cours'][$_SESSION['login']][] = $question_json[$i];
                                 $_SESSION['rep']['score'] = $_SESSION['rep']['score'] + $_SESSION['score'];
+                                $_SESSION['question_deja_repondu'][$_SESSION['questions_afficher']] = $_SESSION['score'];
+                                $_SESSION['tmp_reponse'] = true;
                             }
                         }
                         else{
-                            //'.$question_json[$i][0]->{'reponse'}.'
                             if(isset($_SESSION['boutton_suivant']) || isset($_POST['button_terminer'])){
                                 if (isset($_POST["reponse_texte0"])){
-                                    $_SESSION['reponse'] = $_POST['reponse_texte0'];
+                                    $_SESSION['table_question_joueur'][$_SESSION['questions_afficher']] = $_POST["reponse_texte0"];
                                     if(isset($question_json[$i]['reponse'])){
-                                        if ($question_json[$i]['reponse'] == $_POST["reponse_texte0"]) {
+                                        if($question_json[$i]['questions']){
+                                        if ($question_json[$i]['reponse'] == $_POST["reponse_texte0"]){
+                                            $_SESSION['reponse'] = $_POST['reponse_texte0'];
                                             $_SESSION['reponse_en_cours'][$_SESSION['login']][] = $question_json[$i];
-                                            $_SESSION['rep']['score'] = $_SESSION['rep']['score'] + $_SESSION['score'];
+                                                $_SESSION['rep']['score'] = $_SESSION['rep']['score'] + $_SESSION['score'];
+                                            }
                                         }
                                     }
                                 }
@@ -180,23 +191,17 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
 
                         }
                     }
-
+                    $_SESSION['table_question_joueur'] = array_unique($_SESSION['table_question_joueur'] );
+                    $_SESSION['reponse_cocher_deja'] = array_unique($_SESSION['reponse_cocher_deja']);
+                    $_SESSION['question_deja_repondu'] = array_unique($_SESSION['question_deja_repondu']);
                 }
-              //var_dump($_SESSION['reponse_en_cours']);
+
                 if(!isset($_POST['button_terminer'])){
-                   // var_dump($question_json);
                     require_once 'traitement_hohme_joueur.php';
                 }
-                if(isset($_POST["quitter"])){
-
-                }
-
                 if(isset($_POST['rejouer'])){
-                   // shuffle($_SESSION['questions'] );
-                  //  $_SESSION['questions'] =  $question_json;
                     header('Location: ?lien=joueur');
                 }
-
                 if(isset($_POST['button_terminer'])){
                     $_SESSION['terminer'] = $_POST['button_terminer'];
                     $_SESSION['points'] = $_SESSION['rep']['score'];
@@ -210,7 +215,6 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                         $js = file_get_contents('./data/score.json');
                         $js= json_decode($js, true);
 
-                        //  var_dump($js);
                         if(!(isset($js))){
                             $js[] = $score;
                         }
@@ -222,9 +226,9 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                                             if($js[$i][$key]['login'] ==  $_SESSION['login']){
                                                 $js[$i][$key]['score'] = $score[$_SESSION['login']]['score'];
                                             }
-                                            //var_dump($js[$i]);
+
                                         }
-                                        // var_dump($key);
+
                                     }
                                 }
                                 else{
@@ -233,14 +237,10 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                                     $js[$i][$_SESSION['login']]['login'] = $score[$_SESSION['login']]['login'];
                                     $js[$i][$_SESSION['login']]['score'] =  $score[$_SESSION['login']]['score'];
                                 }
-                                // var_dump($js[$i]);
-                                //  var_dump($js[$i]['prenom']);
+
                             }
                         }
 
-                        //var_dump($js[0]['bamba']['prenom']);
-                        //$js[] = $score;
-                        //var_dump($js);
                         $js = json_encode($js);
                         file_put_contents('./data/score.json', $js);
                     }
@@ -257,7 +257,7 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                         file_put_contents('./data/user.json', $js_users);
                     }
                     $_SESSION['rep']['score'] = 0;
-                    // $_SESSION['questions'] =  $question_json;
+
 
                     $reponses_vrai = file_get_contents("./data/Tag.json");
                     $reponses_vrai = json_decode($reponses_vrai, true);
@@ -274,8 +274,12 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
 
                 }
                 if(isset($_POST['button_terminer'])){
+                    unset($_SESSION['table_question_joueur']);
+                    unset($_SESSION['reponse_cocher_deja']);
+                    unset($_SESSION['question_deja_repondu']);
                     include 'validation_jeu.php';
                 }
+
                 if(!isset($_POST['boutton_suivant'])){
                     if(isset($_SESSION['precedent'])){
                         $_SESSION['n']=$_SESSION['precedent'];
@@ -283,6 +287,9 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
                         $_SESSION['n'] = 1;
                     }
 
+                }
+                if (isset($_SESSION['boutton_suivant'])){
+                   unset($_SESSION['precedent']);
                 }
                 ?>
             </div>
@@ -393,38 +400,28 @@ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE
          }
      }
      ?>
+
                     </div>
-                </div>
-                <div id="d2" style="display: none">
-                    <?php
-     $user = get_data();
-     echo '<br/>';
-     for ($i=0;$i<count($user);$i++){
-         if(isset($user[$i]['profit']) && $user[$i]['profit'] == 'joueur'){
-             if($_SESSION['login'] == $user[$i]['login']){
-                 if($user[$i]['score'] != null){
-                     $max = max($user[$i]['score']);
-                     echo "<div class=\"classement_score\"><span class=''>Meilleur score  : <em class='points_score'>$max pts</em></span></div>";
-                 }
-             }
-         }
-     }
-     ?>
-                </div>
-            </div>
+               </div>
+
         </div>
     </div>
-    <!--
-    <script src="">
+        <div id="d2" style="display: none">
+            <?php
+            $user = get_data();
+            echo '<br/>';
+            for ($i=0;$i<count($user);$i++){
+                if(isset($user[$i]['profit']) && $user[$i]['profit'] == 'joueur'){
+                    if($_SESSION['login'] == $user[$i]['login']){
+                        if($user[$i]['score'] != null){
+                            $max = max($user[$i]['score']);
+                            echo "<div class=\"classement_score\"><span class=''>Meilleur score  : <em class='points_score'>$max pts</em></span></div>";
+                        }
+                    }
+                }
+            }
+            ?>
+        </div>
 
-        function getFile(){
-            document.getElementById("upfile").click();
-        }
-        function sub(obj){
-            var file = obj.value;
-            var fileName = file.split("\'   ");
-            document.getElementById("yourBtn").innerHTML = fileName[fileName.length-1];
-            document.myForm.submit();
-            event.preventDefault();
-        }
-    </script>-->
+
+

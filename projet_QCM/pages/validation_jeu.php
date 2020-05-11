@@ -60,7 +60,9 @@
 </form>
 <?php
 if(isset($_POST['rejouer'])){
+    $_SESSION['rejouer'] = $_POST['rejouer'];
     shuffle($question_json);
+    //$_SESSION['table_question_joueur'] = [];
 }
 ?>
 </body>

@@ -52,8 +52,8 @@
         else{
             $currentPage = 1;
         }
-        $count = count($Tab_classement);
-        $perPage = 2;
+        $count = count($Tab_classement_par_score );
+        $perPage = 15;
         $pages = ceil($count/$perPage);
         $offeset = $perPage * ($currentPage - 1);
         $Tab_classement_par_score = array_slice($Tab_classement_par_score,$offeset, $perPage);

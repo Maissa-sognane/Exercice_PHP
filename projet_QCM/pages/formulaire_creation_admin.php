@@ -53,7 +53,7 @@ if(isset($_POST['creation'])){
                     if(in_array($extensionUpload, $extentionsValides)){
                         $_SESSION['extensionUpload'] = $extensionUpload;
                         if(isset($user['login'])) {
-                            $chemin = "/var/www/PHP/Exercice_PHP/Exercice_PHP/projet_QCM/photo_avatar/".$user['login']. "." . $_SESSION['extensionUpload'];
+                            $chemin = "./photo_avatar/".$user['login']. "." . $_SESSION['extensionUpload'];
                             $resultat = move_uploaded_file($_FILES['avatars']['tmp_name'], $chemin);
                         }
                         if($resultat){
@@ -86,12 +86,12 @@ if(isset($_POST['creation'])){
                         break;
                     }
                 }
-                if(($ver == true)){
+                if(($ver === true)){
                     $msg = 'Login existe déja';
                 }
-                elseif(($ver == false)){
+                elseif(($ver === false)){
                     $js[] = $user;
-                   // header('Location: home_admin.php');
+                    header('Location: ?lien=admin&menu=liste_question');
                 }
 
             }

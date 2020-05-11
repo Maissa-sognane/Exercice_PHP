@@ -1271,6 +1271,9 @@ select{
     color: #3ADDD6;
     text-align: center;
 }
+div #conteneur a{
+    margin-left: 1%;
+}
 
 /* Responsivité */
 

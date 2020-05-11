@@ -29,7 +29,7 @@ is_connecte();
                         $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
                         if(in_array($extensionUpload, $extentionsValides)){
                             $_SESSION['extensionUpload'] = $extensionUpload;
-                            $chemin = "/var/www/PHP/Exercice_PHP/Exercice_PHP/projet_QCM/photo_avatar/".$_SESSION['login'].".".$_SESSION['extensionUpload'];
+                            $chemin = "./photo_avatar/".$_SESSION['login'].".".$_SESSION['extensionUpload'];
                             $resultat = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin);
                             if($resultat){
                                 $admin['photo'] = $_SESSION['login'].".".$_SESSION['extensionUpload'];
